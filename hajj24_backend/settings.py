@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-# import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&-^-llk#t9^v&a+1#c)i=lzjt5bh0-af*0uw1(*jr^nry!z*1i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -80,12 +80,8 @@ WSGI_APPLICATION = 'hajj24_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        "NAME": "hajj24",
-        "USER": "hajj24_user",
-        "PASSWORD": "SQiZj7QWHtENe85K1lW3nwUdOSrtUCih",
-        "HOST": "dpg-clgc69njc5ks73ee87n0-a",
-        "PORT": "5432",   
+        'ENGINE': 'django.db.backends.postgres',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
