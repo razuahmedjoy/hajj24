@@ -14,8 +14,6 @@ from django.utils.decorators import method_decorator
 
 User = get_user_model()
 
-
-
 #  create a userList api view from where we can get all the users and create a new user
 @method_decorator(csrf_protect, name='dispatch')
 class UserListCreateAPIView(generics.ListCreateAPIView):
@@ -59,9 +57,6 @@ class TentListCreateAPIView(generics.ListCreateAPIView):
     queryset = Tent.objects.all()
     serializer_class = TentSerializer
     permission_classes = [IsAuthenticated]
-
-    def perform_create(self, serializer):
-        serializer.save(created_by=self.request.user)
 
 class TentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Tent.objects.all()

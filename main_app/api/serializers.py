@@ -20,7 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class TentSerializer(serializers.ModelSerializer):
     # fetch the created_by users data also when fetching the tent data
-    created_by = UserSerializer(read_only=True)
+    created_by = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
     class Meta:
         model = Tent
         fields = ('id', 'name', 'lat', 'long', 'location', 'created_by', 'created_at', 'updated_at')
@@ -28,8 +28,6 @@ class TentSerializer(serializers.ModelSerializer):
 
 # create a serializer for the Camera model
 class CameraSerializer(serializers.ModelSerializer):
-  
-
     class Meta:
         model = Camera
         fields = ('id', 'sn', 'tent_details', 'tent')
