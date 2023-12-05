@@ -9,12 +9,15 @@ from rest_framework.decorators import permission_classes
 from rest_framework.authtoken.models import Token
 from main_app.models import *
 from .serializers import *
+from django.views.decorators.csrf import csrf_protect
+from django.utils.decorators import method_decorator
 
 User = get_user_model()
 
 
 
 #  create a userList api view from where we can get all the users and create a new user
+@method_decorator(csrf_protect, name='dispatch')
 class UserListCreateAPIView(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
