@@ -58,7 +58,7 @@ class UserLoginAPIView(APIView):
 class TentListCreateAPIView(generics.ListCreateAPIView):
     queryset = Tent.objects.all()
     serializer_class = TentSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)
@@ -67,16 +67,18 @@ class TentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Tent.objects.all()
     serializer_class = TentSerializer
     permission_classes = [IsAuthenticated]
+    lookup_field = 'id'
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
 
 
 class CameraListCreateAPIView(generics.ListCreateAPIView):
     queryset = Camera.objects.all()
     serializer_class = CameraSerializer
     permission_classes = [IsAuthenticated]
-
-    
-
-
 
 class CameraRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Camera.objects.all()

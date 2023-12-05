@@ -19,12 +19,11 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 class TentSerializer(serializers.ModelSerializer):
+    # fetch the created_by users data also when fetching the tent data
+    created_by = UserSerializer(read_only=True)
     class Meta:
         model = Tent
         fields = ('id', 'name', 'lat', 'long', 'location', 'created_by', 'created_at', 'updated_at')
-
-    # fetch the created_by users data also when fetching the tent data
-    created_by = UserSerializer(read_only=True)
 
 
 # create a serializer for the Camera model
