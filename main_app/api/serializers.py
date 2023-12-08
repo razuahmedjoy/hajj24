@@ -26,19 +26,14 @@ class TentSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'lat', 'long', 'location', 'created_by', 'created_at', 'updated_at')
 
 
-# create a serializer for the Camera model
+
 class CameraSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Camera
-        fields = ('id', 'sn', 'tent_details', 'tent')
     tent_details = TentSerializer(read_only=True, source='tent')
 
+    class Meta:
+        model = Camera
+        fields = ('id', 'sn', 'tent', 'tent_details', 'heart_beat_time', 'created_at', 'updated_at')
 
     def create(self, validated_data):
-    
-        # check if all required fields are provided
-        try:
-            camera = Camera.objects.create(**validated_data)
-            return camera
-        except KeyError:
-            raise serializers.ValidationError({'error': 'Something went wrong'})
+        camera = Camera.objects.create(**validated_data)
+        return camera

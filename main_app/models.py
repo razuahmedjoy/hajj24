@@ -2,6 +2,7 @@
 
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.utils import timezone
 
 User = get_user_model()
 
@@ -17,13 +18,13 @@ class Tent(models.Model):
     def __str__(self):
         return self.name
 
-
-
 class Camera(models.Model):
-    sn = models.CharField(max_length=255)
-    tent = models.ForeignKey(Tent, on_delete=models.CASCADE, related_name='cameras')
+    sn = models.CharField(max_length=255, unique=True)
+    tent = models.ForeignKey('Tent', on_delete=models.SET_NULL, null=True, blank=True)
+    heart_beat_time = models.DateTimeField(default=timezone.now)
+    created_at = models.DateTimeField(verbose_name="created_at", default=timezone.now)
+    updated_at = models.DateTimeField(verbose_name="updated_at", auto_now=True)
 
     def __str__(self):
-        # return sn + ' - ' + tent.name
-        return self.sn + ' - ' + self.tent.name
+        return f"{self.sn} - {self.tent.name if self.tent else 'No Tent'}"
 

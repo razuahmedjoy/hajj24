@@ -73,9 +73,9 @@ class TentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 class CameraListCreateAPIView(generics.ListCreateAPIView):
     queryset = Camera.objects.all()
     serializer_class = CameraSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
 class CameraRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Camera.objects.all()
     serializer_class = CameraSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
