@@ -34,9 +34,6 @@ class CameraSerializer(serializers.ModelSerializer):
     tent_details = TentSerializer(read_only=True, source='tent')
 
 
-
-
-
     def create(self, validated_data):
     
         # check if all required fields are provided

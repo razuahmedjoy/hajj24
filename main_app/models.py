@@ -20,7 +20,6 @@ class Tent(models.Model):
 
 
 class Camera(models.Model):
-
     sn = models.CharField(max_length=255)
     tent = models.ForeignKey(Tent, on_delete=models.CASCADE, related_name='cameras')
 
