@@ -28,3 +28,23 @@ class Camera(models.Model):
     def __str__(self):
         return f"{self.sn} - {self.tent.name if self.tent else 'No Tent'}"
 
+class CounterHistory(models.Model):
+    camera = models.ForeignKey(Camera, on_delete=models.CASCADE)
+    sn = models.CharField(max_length=255)
+    total_in = models.IntegerField(default=0)
+    total_out = models.IntegerField(default=0)
+    total = models.IntegerField(default=0)
+    start_time = models.DateTimeField(null=True, blank=True)
+    end_time = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(verbose_name="created_at", auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name="updated_at", auto_now=True)
+
+class CameraHeartbeat(models.Model):
+    camera = models.ForeignKey(Camera, on_delete=models.CASCADE)
+    sn = models.CharField(max_length=255)
+    version = models.IntegerField()
+    ip_address = models.CharField(max_length=255)
+    time_zone = models.IntegerField()
+    hw_platform = models.CharField(max_length=255)
+    report_date = models.DateField()
+    time = models.DateTimeField(null=True, blank=True)

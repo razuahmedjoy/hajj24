@@ -52,16 +52,16 @@ class UserLoginAPIView(APIView):
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 class TentListCreateAPIView(generics.ListCreateAPIView):
     queryset = Tent.objects.all()
     serializer_class = TentSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
 class TentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Tent.objects.all()
     serializer_class = TentSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     lookup_field = 'id'
 
     def get_serializer_context(self):
@@ -73,9 +73,29 @@ class TentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 class CameraListCreateAPIView(generics.ListCreateAPIView):
     queryset = Camera.objects.all()
     serializer_class = CameraSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
 class CameraRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Camera.objects.all()
     serializer_class = CameraSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
+
+class CounterHistoryListCreateView(generics.ListCreateAPIView):
+    queryset = CounterHistory.objects.all()
+    serializer_class = CreateCounterHistorySerializer
+    permission_classes = [IsAuthenticated]
+
+class CounterHistoryDetailView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = CounterHistory.objects.all()
+    serializer_class = CreateCounterHistorySerializer
+
+class CameraHeartbeatListCreateView(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = CameraHeartbeat.objects.all()
+    serializer_class = CreateHeartbeatSerializer
+
+class CameraHeartbeatDetailView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = CameraHeartbeat.objects.all()
+    serializer_class = CreateHeartbeatSerializer
