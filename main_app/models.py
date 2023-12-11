@@ -20,7 +20,7 @@ class Tent(models.Model):
 
 class Camera(models.Model):
     sn = models.CharField(max_length=255, unique=True)
-    tent = models.ForeignKey('Tent', on_delete=models.SET_NULL, null=True, blank=True)
+    tent = models.ForeignKey(Tent, on_delete=models.SET_NULL, null=True, blank=True)
     heart_beat_time = models.DateTimeField(default=timezone.now)
     created_at = models.DateTimeField(verbose_name="created_at", default=timezone.now)
     updated_at = models.DateTimeField(verbose_name="updated_at", auto_now=True)

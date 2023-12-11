@@ -17,11 +17,25 @@ class UserSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(**validated_data)
         return user
 
+class CameraTentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Camera
+        fields = ('id', 'sn', 'heart_beat_time', 'created_at', 'updated_at')
+
+    def create(self, validated_data):
+        camera = Camera.objects.create(**validated_data)
+        return camera
+
 class TentSerializer(serializers.ModelSerializer):
+    # cameras = CameraTentSerializer(many=True, read_only=True)
+    cameras = serializers.SerializerMethodField('get_cameras')
     created_by = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
     class Meta:
         model = Tent
-        fields = ('id', 'name', 'lat', 'long', 'location', 'created_by', 'created_at', 'updated_at')
+        fields = ('cameras','id', 'name', 'lat', 'long', 'location', 'created_by', 'created_at', 'updated_at')
+    def get_cameras(self, obj):
+        cameras = Camera.objects.filter(tent=obj)
+        return CameraTentSerializer(cameras, many=True).data
 
 
 
