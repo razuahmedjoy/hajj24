@@ -16,6 +16,7 @@ from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from rest_framework.exceptions import ValidationError
 from django.db.models import Prefetch
+from datetime import date, timedelta
 
 User = get_user_model()
 
@@ -72,6 +73,32 @@ class TentListCreateAPIView(generics.ListCreateAPIView):
 
         return queryset
 
+class TentWithDayMonthYear(generics.ListCreateAPIView):
+    queryset = Tent.objects.all()
+    serializer_class = TentSerializer
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        value = self.request.query_params.get('value')
+        print(value)
+
+        if "day"== value:
+            today = timezone.now().date()
+            queryset = queryset.filter(updated_at__date=today)
+
+        elif "week" == value:
+            last_week = timezone.now().date() - timedelta(days=7)
+            queryset = queryset.filter(updated_at__date__gte=last_week)
+
+        elif "month" == value:
+            last_month = timezone.now().date() - timedelta(days=30)
+            queryset = queryset.filter(updated_at__date__gte=last_month)
+
+        elif "year" == value:
+            last_year = timezone.now().date() - timedelta(days=365)
+            queryset = queryset.filter(updated_at__date__gte=last_year)
+        return queryset
+
 class TentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Tent.objects.all()
     serializer_class = TentSerializer
@@ -84,11 +111,20 @@ class TentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class CameraListCreateAPIView(generics.ListCreateAPIView):
-    queryset = Camera.objects.prefetch_related(
-        Prefetch('counter_histories', queryset=CounterHistory.objects.all()),
-        Prefetch('heartbeats', queryset=CameraHeartbeat.objects.all())
-    )
     serializer_class = CameraDetailSerializer
+
+    def get_queryset(self):
+        camera_id = self.request.query_params.get('id')
+        if camera_id:
+            return Camera.objects.filter(id=camera_id).prefetch_related(
+                Prefetch('counter_histories', queryset=CounterHistory.objects.all()),
+                Prefetch('heartbeats', queryset=CameraHeartbeat.objects.all())
+            )
+        else:
+            return Camera.objects.prefetch_related(
+                Prefetch('counter_histories', queryset=CounterHistory.objects.all()),
+                Prefetch('heartbeats', queryset=CameraHeartbeat.objects.all())
+            )
 
 class CameraRetrieveUpdateDestroyAPIView(generics.RetrieveAPIView):
     queryset = Camera.objects.all()
