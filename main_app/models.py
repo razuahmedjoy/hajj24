@@ -50,3 +50,5 @@ class CameraHeartbeat(models.Model):
     time = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now, blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+class 
