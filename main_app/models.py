@@ -24,6 +24,7 @@ class Camera(models.Model):
     heart_beat_time = models.DateTimeField(default=timezone.now)
     created_at = models.DateTimeField(verbose_name="created_at", default=timezone.now)
     updated_at = models.DateTimeField(verbose_name="updated_at", auto_now=True)
+    status = models.BooleanField(default=False, help_text='Indicates if the camera is active or not')
 
     def __str__(self):
         return f"{self.sn} - {self.tent.name if self.tent else 'No Tent'}"
