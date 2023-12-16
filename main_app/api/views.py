@@ -283,3 +283,12 @@ class CameraHeartbeatListCreateView(generics.ListCreateAPIView):
             return Response(heartbeat_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(heartbeat_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class PictureCreateView(generics.CreateAPIView):
+    queryset = Picture.objects.all()
+    serializer_class = PictureSerializer
+    # permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)

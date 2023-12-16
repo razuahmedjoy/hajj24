@@ -3,6 +3,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils import timezone
+from django.conf import settings
 
 User = get_user_model()
 
@@ -50,3 +51,17 @@ class CameraHeartbeat(models.Model):
     time = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now, blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+# main_app/models.py
+class Picture(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    images = models.ManyToManyField('Image', related_name='pictures')
+    caption = models.CharField(max_length=255, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+class Image(models.Model):
+    picture = models.ForeignKey(Picture, related_name='image_set', on_delete=models.CASCADE, default=1)  # Replace '1' with the ID of an existing Picture instance
+    image = models.ImageField(upload_to='user_pictures/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)

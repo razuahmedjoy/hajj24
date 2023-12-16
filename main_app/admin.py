@@ -7,17 +7,17 @@ from .models import *
 
 User = get_user_model()
 
-# # Unregister the User model if it is already registered
-# try:
-#     admin.site.unregister(User)
-# except admin.sites.NotRegistered:
-#     pass
+# Unregister the User model if it is already registered
+try:
+    admin.site.unregister(User)
+except admin.sites.NotRegistered:
+    pass
 
-# class CustomUserAdmin(UserAdmin):
-#     list_display = ('id', 'username', 'email', 'is_staff', 'is_active')
+class CustomUserAdmin(UserAdmin):
+    list_display = ('id', 'username', 'email', 'is_staff', 'is_active')
 
-# # Register the User model with the custom admin class
-# admin.site.register(User, CustomUserAdmin)
+# Register the User model with the custom admin class
+admin.site.register(User, CustomUserAdmin)
 
 class TentAdmin(admin.ModelAdmin):
     list_display = ('id','name', 'created_by_user', 'created_at', 'updated_at')

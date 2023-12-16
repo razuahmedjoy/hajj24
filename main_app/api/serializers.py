@@ -128,3 +128,23 @@ class CameraDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Camera
         fields = ['id', 'sn', 'tent', 'tent_details', 'heart_beat_time', 'created_at', 'updated_at', 'counter_histories', 'heartbeats']
+class ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Image
+        fields = ('id', 'image', 'uploaded_at')
+
+class PictureSerializer(serializers.ModelSerializer):
+    images = ImageSerializer(many=True)  # Use ImageSerializer for the ManyToManyField
+
+    class Meta:
+        model = Picture
+        fields = ('id', 'user', 'images', 'caption', 'created_at', 'updated_at')
+
+    def create(self, validated_data):
+        images_data = validated_data.pop('images')  # Extract image data
+        picture = Picture.objects.create(**validated_data)  # Create Picture instance
+
+        for image_data in images_data:
+            Image.objects.create(picture=picture, **image_data)  # Create Image instances
+
+        return picture
