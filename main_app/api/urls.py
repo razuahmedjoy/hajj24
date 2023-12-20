@@ -20,4 +20,5 @@ urlpatterns = [
     path('register-camera-with-history/', CameraRegistrationWithHistoryView.as_view(), name='register-camera-with-history'),
     path('create-counter-history', CounterHistoryCreateAPIView.as_view(), name='create-counter-history'),
     path('create_picture/', PictureCreateView.as_view(), name='create-picture'),
+    path('tent-counter',CounterHistoryByDateView.as_view(), name="tent-counter")
 ]
