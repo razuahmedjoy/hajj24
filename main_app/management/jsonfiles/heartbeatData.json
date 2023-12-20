@@ -2,7 +2,7 @@
   {
     "version": 1,
     "ip_address": "39.255.92.225",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-28",
     "time": "2023-05-19T14:23:47.812ZT18:20:19"
@@ -10,7 +10,7 @@
   {
     "version": 2,
     "ip_address": "23.178.166.208",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-21",
     "time": "2023-06-05T21:15:03.420ZT23:51:50"
@@ -18,7 +18,7 @@
   {
     "version": 10,
     "ip_address": "217.110.216.111",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-05",
     "time": "2023-05-15T00:51:41.297ZT08:47:53"
@@ -26,7 +26,7 @@
   {
     "version": 9,
     "ip_address": "251.97.216.36",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-06",
     "time": "2023-09-12T04:47:25.964ZT03:43:31"
@@ -34,7 +34,7 @@
   {
     "version": 5,
     "ip_address": "48.32.243.102",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-17",
     "time": "2023-11-16T18:21:19.392ZT03:22:16"
@@ -42,7 +42,7 @@
   {
     "version": 10,
     "ip_address": "129.94.76.150",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-29",
     "time": "2023-07-30T15:11:06.863ZT08:52:30"
@@ -58,7 +58,7 @@
   {
     "version": 6,
     "ip_address": "171.27.162.178",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-23",
     "time": "2023-01-29T11:13:28.136ZT17:17:39"
@@ -90,7 +90,7 @@
   {
     "version": 7,
     "ip_address": "133.171.136.237",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-15",
     "time": "2023-04-07T05:57:39.540ZT04:30:17"
@@ -98,7 +98,7 @@
   {
     "version": 10,
     "ip_address": "30.40.148.78",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-13",
     "time": "2023-12-28T02:48:37.856ZT10:41:53"
@@ -114,7 +114,7 @@
   {
     "version": 5,
     "ip_address": "107.187.97.117",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-27",
     "time": "2023-10-31T09:31:31.683ZT22:54:55"
@@ -122,7 +122,7 @@
   {
     "version": 7,
     "ip_address": "94.61.128.245",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-15",
     "time": "2023-04-23T08:03:04.396ZT00:48:13"
@@ -146,7 +146,7 @@
   {
     "version": 2,
     "ip_address": "136.11.255.84",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-06",
     "time": "2023-05-02T03:56:46.967ZT00:57:03"
@@ -178,7 +178,7 @@
   {
     "version": 9,
     "ip_address": "177.157.224.2",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-21",
     "time": "2023-06-07T14:04:30.903ZT13:47:07"
@@ -186,7 +186,7 @@
   {
     "version": 1,
     "ip_address": "119.119.105.81",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-25",
     "time": "2023-11-09T15:35:03.851ZT13:29:32"
@@ -202,7 +202,7 @@
   {
     "version": 10,
     "ip_address": "250.221.71.49",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-24",
     "time": "2023-01-03T05:20:58.563ZT19:55:40"
@@ -218,7 +218,7 @@
   {
     "version": 2,
     "ip_address": "74.9.17.50",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-11",
     "time": "2023-09-26T00:40:48.713ZT11:58:21"
@@ -234,7 +234,7 @@
   {
     "version": 10,
     "ip_address": "56.80.208.174",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-24",
     "time": "2023-09-23T09:05:44.819ZT00:08:18"
@@ -242,7 +242,7 @@
   {
     "version": 1,
     "ip_address": "49.136.183.164",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-19",
     "time": "2023-09-16T14:05:07.525ZT10:29:27"
@@ -250,7 +250,7 @@
   {
     "version": 7,
     "ip_address": "76.34.22.175",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-25",
     "time": "2023-09-24T09:29:21.628ZT23:40:44"
@@ -258,7 +258,7 @@
   {
     "version": 5,
     "ip_address": "66.77.181.229",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-12",
     "time": "2023-02-08T15:26:08.523ZT02:36:53"
@@ -290,7 +290,7 @@
   {
     "version": 4,
     "ip_address": "60.192.193.142",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-06",
     "time": "2023-03-17T03:41:46.050ZT03:42:22"
@@ -298,7 +298,7 @@
   {
     "version": 4,
     "ip_address": "69.40.203.234",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-03",
     "time": "2023-03-29T15:00:56.513ZT13:06:24"
@@ -306,7 +306,7 @@
   {
     "version": 7,
     "ip_address": "210.75.9.221",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-24",
     "time": "2023-08-01T01:31:22.624ZT08:23:45"
@@ -314,7 +314,7 @@
   {
     "version": 8,
     "ip_address": "146.70.212.112",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-05",
     "time": "2023-10-11T00:17:25.977ZT13:07:10"
@@ -322,7 +322,7 @@
   {
     "version": 2,
     "ip_address": "60.24.156.124",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-20",
     "time": "2023-07-28T04:21:36.057ZT21:28:29"
@@ -346,7 +346,7 @@
   {
     "version": 6,
     "ip_address": "205.25.5.178",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-19",
     "time": "2023-09-09T00:27:58.070ZT12:22:02"
@@ -362,7 +362,7 @@
   {
     "version": 5,
     "ip_address": "53.87.156.63",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-03",
     "time": "2023-11-23T13:47:57.810ZT10:14:24"
@@ -402,7 +402,7 @@
   {
     "version": 10,
     "ip_address": "136.78.9.233",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-17",
     "time": "2023-07-14T06:29:46.598ZT12:30:06"
@@ -410,7 +410,7 @@
   {
     "version": 3,
     "ip_address": "201.76.149.196",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-21",
     "time": "2023-07-17T13:53:20.620ZT20:12:40"
@@ -418,7 +418,7 @@
   {
     "version": 3,
     "ip_address": "222.9.77.104",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-15",
     "time": "2023-06-16T06:00:00.015ZT20:14:37"
@@ -426,7 +426,7 @@
   {
     "version": 7,
     "ip_address": "184.54.192.102",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-26",
     "time": "2023-08-18T20:18:34.899ZT14:00:02"
@@ -434,7 +434,7 @@
   {
     "version": 9,
     "ip_address": "30.254.219.147",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-25",
     "time": "2023-05-13T22:27:09.026ZT01:52:40"
@@ -450,7 +450,7 @@
   {
     "version": 8,
     "ip_address": "85.219.156.158",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-15",
     "time": "2023-10-20T10:58:12.431ZT11:25:53"
@@ -466,7 +466,7 @@
   {
     "version": 3,
     "ip_address": "24.15.5.143",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-01",
     "time": "2023-05-17T03:40:45.406ZT11:12:24"
@@ -498,7 +498,7 @@
   {
     "version": 10,
     "ip_address": "183.26.177.103",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-13",
     "time": "2023-02-17T10:33:10.028ZT19:40:24"
@@ -514,7 +514,7 @@
   {
     "version": 7,
     "ip_address": "126.196.44.197",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-26",
     "time": "2023-01-23T09:25:55.623ZT21:34:50"
@@ -522,7 +522,7 @@
   {
     "version": 2,
     "ip_address": "238.56.18.113",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-25",
     "time": "2023-05-24T04:46:19.590ZT16:16:06"
@@ -546,7 +546,7 @@
   {
     "version": 6,
     "ip_address": "146.198.45.176",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-23",
     "time": "2023-12-12T12:13:57.566ZT04:11:46"
@@ -554,7 +554,7 @@
   {
     "version": 2,
     "ip_address": "150.32.50.119",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-01",
     "time": "2023-10-04T19:05:40.707ZT10:57:16"
@@ -586,7 +586,7 @@
   {
     "version": 2,
     "ip_address": "29.179.198.197",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-11",
     "time": "2023-07-23T22:16:29.581ZT21:35:35"
@@ -602,7 +602,7 @@
   {
     "version": 2,
     "ip_address": "136.112.68.21",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-06",
     "time": "2023-02-06T21:02:32.237ZT16:43:54"
@@ -610,7 +610,7 @@
   {
     "version": 8,
     "ip_address": "175.21.205.106",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-30",
     "time": "2023-04-22T20:44:52.187ZT17:19:34"
@@ -618,7 +618,7 @@
   {
     "version": 7,
     "ip_address": "227.207.238.251",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-01",
     "time": "2023-12-19T15:28:34.128ZT18:23:23"
@@ -690,7 +690,7 @@
   {
     "version": 9,
     "ip_address": "236.24.255.60",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-13",
     "time": "2023-11-29T02:27:50.498ZT20:35:49"
@@ -698,7 +698,7 @@
   {
     "version": 10,
     "ip_address": "109.248.112.108",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-15",
     "time": "2023-03-22T13:36:08.224ZT19:17:00"
@@ -714,7 +714,7 @@
   {
     "version": 10,
     "ip_address": "145.130.90.197",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-12",
     "time": "2023-11-18T06:46:20.611ZT22:11:21"
@@ -730,7 +730,7 @@
   {
     "version": 5,
     "ip_address": "74.15.255.30",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-19",
     "time": "2023-04-04T19:46:54.470ZT15:21:41"
@@ -738,7 +738,7 @@
   {
     "version": 4,
     "ip_address": "30.102.203.96",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-31",
     "time": "2023-11-13T12:14:31.646ZT11:00:00"
@@ -754,7 +754,7 @@
   {
     "version": 6,
     "ip_address": "69.12.104.170",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-14",
     "time": "2023-09-04T14:30:20.976ZT05:13:57"
@@ -778,7 +778,7 @@
   {
     "version": 7,
     "ip_address": "68.190.195.202",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-18",
     "time": "2023-08-26T01:33:15.179ZT18:10:04"
@@ -786,7 +786,7 @@
   {
     "version": 3,
     "ip_address": "181.151.140.190",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-02",
     "time": "2023-11-12T12:46:35.209ZT17:07:32"
@@ -794,7 +794,7 @@
   {
     "version": 6,
     "ip_address": "131.139.74.105",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-29",
     "time": "2023-12-29T08:17:56.521ZT12:40:43"
@@ -802,7 +802,7 @@
   {
     "version": 2,
     "ip_address": "14.89.145.228",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-17",
     "time": "2023-04-29T09:43:44.827ZT06:46:13"
@@ -818,7 +818,7 @@
   {
     "version": 1,
     "ip_address": "137.249.207.230",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-07",
     "time": "2023-10-08T22:11:28.729ZT17:19:29"
@@ -842,7 +842,7 @@
   {
     "version": 6,
     "ip_address": "142.140.33.107",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-27",
     "time": "2023-12-24T22:30:57.698ZT14:22:03"
@@ -850,7 +850,7 @@
   {
     "version": 8,
     "ip_address": "219.26.229.117",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-28",
     "time": "2023-10-12T08:40:56.619ZT03:52:20"
@@ -858,7 +858,7 @@
   {
     "version": 6,
     "ip_address": "167.182.208.103",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-03",
     "time": "2023-01-17T09:05:16.705ZT03:57:48"
@@ -866,7 +866,7 @@
   {
     "version": 3,
     "ip_address": "205.174.53.113",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-05",
     "time": "2023-01-25T05:47:28.024ZT01:27:59"
@@ -890,7 +890,7 @@
   {
     "version": 9,
     "ip_address": "36.173.44.144",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-25",
     "time": "2023-09-21T08:02:15.648ZT14:23:15"
@@ -906,7 +906,7 @@
   {
     "version": 2,
     "ip_address": "135.149.162.151",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-20",
     "time": "2023-04-19T13:07:56.234ZT14:30:42"
@@ -922,7 +922,7 @@
   {
     "version": 3,
     "ip_address": "223.0.184.200",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-18",
     "time": "2023-05-26T08:41:27.574ZT05:50:26"
@@ -946,7 +946,7 @@
   {
     "version": 6,
     "ip_address": "135.2.245.22",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-17",
     "time": "2023-02-27T21:52:42.638ZT08:59:46"
@@ -954,7 +954,7 @@
   {
     "version": 10,
     "ip_address": "43.78.8.69",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-01",
     "time": "2023-05-15T13:03:32.679ZT14:20:07"
@@ -978,7 +978,7 @@
   {
     "version": 2,
     "ip_address": "163.189.239.252",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-31",
     "time": "2023-11-10T20:56:24.975ZT07:29:08"
@@ -994,7 +994,7 @@
   {
     "version": 4,
     "ip_address": "3.213.152.40",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-14",
     "time": "2023-07-27T22:30:52.903ZT08:24:58"
@@ -1002,7 +1002,7 @@
   {
     "version": 7,
     "ip_address": "172.218.254.94",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-06",
     "time": "2023-09-06T11:02:02.253ZT21:44:38"
@@ -1010,7 +1010,7 @@
   {
     "version": 10,
     "ip_address": "74.60.18.65",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-13",
     "time": "2023-08-22T15:04:55.217ZT05:58:00"
@@ -1018,7 +1018,7 @@
   {
     "version": 10,
     "ip_address": "108.3.183.150",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-05",
     "time": "2023-12-23T23:17:45.488ZT14:07:15"
@@ -1034,7 +1034,7 @@
   {
     "version": 6,
     "ip_address": "253.150.8.8",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-27",
     "time": "2023-10-22T14:43:41.183ZT04:53:57"
@@ -1042,7 +1042,7 @@
   {
     "version": 6,
     "ip_address": "129.242.171.127",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-21",
     "time": "2023-09-13T21:06:11.849ZT16:25:18"
@@ -1050,7 +1050,7 @@
   {
     "version": 1,
     "ip_address": "32.3.72.29",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-07",
     "time": "2023-10-09T00:56:49.364ZT12:19:41"
@@ -1058,7 +1058,7 @@
   {
     "version": 4,
     "ip_address": "208.35.70.134",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-31",
     "time": "2023-08-25T02:07:42.342ZT11:09:06"
@@ -1066,7 +1066,7 @@
   {
     "version": 9,
     "ip_address": "229.186.9.241",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-07",
     "time": "2023-05-19T23:29:56.384ZT21:26:20"
@@ -1082,7 +1082,7 @@
   {
     "version": 3,
     "ip_address": "50.192.169.13",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-20",
     "time": "2023-02-03T20:48:59.237ZT08:02:00"
@@ -1090,7 +1090,7 @@
   {
     "version": 9,
     "ip_address": "135.0.247.117",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-21",
     "time": "2023-08-27T04:50:55.082ZT18:16:39"
@@ -1098,7 +1098,7 @@
   {
     "version": 6,
     "ip_address": "194.45.22.54",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-12",
     "time": "2023-06-30T14:36:16.483ZT23:16:15"
@@ -1106,7 +1106,7 @@
   {
     "version": 7,
     "ip_address": "182.73.68.58",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-14",
     "time": "2023-07-31T09:14:48.882ZT13:05:34"
@@ -1114,7 +1114,7 @@
   {
     "version": 8,
     "ip_address": "238.3.78.136",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-24",
     "time": "2023-05-07T23:21:27.829ZT11:49:58"
@@ -1130,7 +1130,7 @@
   {
     "version": 10,
     "ip_address": "97.77.223.41",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-29",
     "time": "2023-12-21T01:46:04.528ZT19:12:55"
@@ -1146,7 +1146,7 @@
   {
     "version": 6,
     "ip_address": "107.97.228.117",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-09",
     "time": "2023-05-26T14:45:17.328ZT06:06:14"
@@ -1154,7 +1154,7 @@
   {
     "version": 4,
     "ip_address": "188.116.203.253",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-02",
     "time": "2023-08-14T10:21:51.277ZT23:32:58"
@@ -1170,7 +1170,7 @@
   {
     "version": 9,
     "ip_address": "7.54.26.18",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-15",
     "time": "2023-02-08T18:57:17.056ZT01:59:40"
@@ -1186,7 +1186,7 @@
   {
     "version": 9,
     "ip_address": "197.26.167.25",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-30",
     "time": "2023-12-10T03:03:04.898ZT11:09:22"
@@ -1194,7 +1194,7 @@
   {
     "version": 9,
     "ip_address": "185.108.12.74",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-21",
     "time": "2023-04-18T22:46:23.866ZT10:59:57"
@@ -1202,7 +1202,7 @@
   {
     "version": 2,
     "ip_address": "107.254.78.104",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-06",
     "time": "2023-11-19T14:18:02.241ZT08:34:40"
@@ -1210,7 +1210,7 @@
   {
     "version": 9,
     "ip_address": "211.105.131.98",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-01",
     "time": "2023-09-16T17:22:12.556ZT00:39:52"
@@ -1226,7 +1226,7 @@
   {
     "version": 4,
     "ip_address": "194.0.170.30",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-07",
     "time": "2023-07-19T11:48:48.423ZT11:55:59"
@@ -1234,7 +1234,7 @@
   {
     "version": 6,
     "ip_address": "91.251.93.121",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-25",
     "time": "2023-04-28T12:39:28.843ZT14:51:54"
@@ -1242,7 +1242,7 @@
   {
     "version": 4,
     "ip_address": "21.202.177.181",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-11",
     "time": "2023-08-15T13:38:34.149ZT12:53:51"
@@ -1266,7 +1266,7 @@
   {
     "version": 1,
     "ip_address": "252.26.224.2",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-22",
     "time": "2023-08-28T17:57:13.327ZT09:27:36"
@@ -1322,7 +1322,7 @@
   {
     "version": 8,
     "ip_address": "121.150.97.12",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-21",
     "time": "2023-05-29T19:29:36.769ZT08:34:21"
@@ -1378,7 +1378,7 @@
   {
     "version": 7,
     "ip_address": "21.234.42.220",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-26",
     "time": "2023-12-15T13:49:53.169ZT11:24:09"
@@ -1394,7 +1394,7 @@
   {
     "version": 8,
     "ip_address": "87.93.170.113",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-05",
     "time": "2023-08-05T13:14:06.858ZT22:27:07"
@@ -1418,7 +1418,7 @@
   {
     "version": 9,
     "ip_address": "42.33.219.218",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-01",
     "time": "2023-09-05T15:42:21.294ZT16:02:08"
@@ -1426,7 +1426,7 @@
   {
     "version": 9,
     "ip_address": "69.61.206.188",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-03",
     "time": "2023-11-19T18:54:00.652ZT17:37:38"
@@ -1434,7 +1434,7 @@
   {
     "version": 9,
     "ip_address": "238.208.246.43",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-06",
     "time": "2023-09-01T20:19:06.330ZT13:36:52"
@@ -1450,7 +1450,7 @@
   {
     "version": 4,
     "ip_address": "147.3.134.26",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-07",
     "time": "2023-07-26T21:39:13.258ZT01:04:18"
@@ -1458,7 +1458,7 @@
   {
     "version": 4,
     "ip_address": "120.124.158.225",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-30",
     "time": "2023-04-09T10:55:14.926ZT08:08:21"
@@ -1482,7 +1482,7 @@
   {
     "version": 4,
     "ip_address": "86.208.181.104",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-26",
     "time": "2023-10-14T01:34:20.029ZT06:54:29"
@@ -1490,7 +1490,7 @@
   {
     "version": 4,
     "ip_address": "88.130.162.4",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-14",
     "time": "2023-02-02T01:52:38.858ZT16:19:25"
@@ -1530,7 +1530,7 @@
   {
     "version": 9,
     "ip_address": "248.73.27.211",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-11",
     "time": "2023-06-06T19:51:16.111ZT17:34:03"
@@ -1538,7 +1538,7 @@
   {
     "version": 4,
     "ip_address": "124.30.137.208",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-14",
     "time": "2023-04-25T04:43:32.083ZT15:07:34"
@@ -1546,7 +1546,7 @@
   {
     "version": 7,
     "ip_address": "27.5.159.35",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-27",
     "time": "2023-07-04T07:32:20.893ZT01:49:49"
@@ -1602,7 +1602,7 @@
   {
     "version": 2,
     "ip_address": "53.203.205.73",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-10",
     "time": "2023-07-05T10:19:14.656ZT18:17:10"
@@ -1618,7 +1618,7 @@
   {
     "version": 8,
     "ip_address": "132.67.35.29",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-15",
     "time": "2023-04-06T01:14:54.414ZT18:40:18"
@@ -1626,7 +1626,7 @@
   {
     "version": 2,
     "ip_address": "200.71.79.60",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-06",
     "time": "2023-02-04T07:27:42.666ZT16:49:05"
@@ -1634,7 +1634,7 @@
   {
     "version": 1,
     "ip_address": "190.212.5.35",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-02",
     "time": "2023-09-11T17:51:51.038ZT12:54:01"
@@ -1642,7 +1642,7 @@
   {
     "version": 2,
     "ip_address": "91.209.71.241",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-01",
     "time": "2023-03-01T04:14:43.327ZT17:53:13"
@@ -1666,7 +1666,7 @@
   {
     "version": 5,
     "ip_address": "1.7.120.86",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-29",
     "time": "2023-03-24T23:42:19.776ZT11:04:11"
@@ -1674,7 +1674,7 @@
   {
     "version": 7,
     "ip_address": "24.19.31.167",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-04",
     "time": "2023-05-19T03:20:19.090ZT03:39:47"
@@ -1698,7 +1698,7 @@
   {
     "version": 4,
     "ip_address": "189.140.28.191",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-17",
     "time": "2023-01-05T05:05:22.315ZT20:16:31"
@@ -1714,7 +1714,7 @@
   {
     "version": 1,
     "ip_address": "48.200.44.58",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-06",
     "time": "2023-03-05T21:45:55.916ZT18:25:13"
@@ -1722,7 +1722,7 @@
   {
     "version": 5,
     "ip_address": "243.245.101.68",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-22",
     "time": "2023-12-05T06:28:53.597ZT18:49:41"
@@ -1730,7 +1730,7 @@
   {
     "version": 5,
     "ip_address": "56.121.114.87",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-15",
     "time": "2023-07-03T22:47:25.920ZT12:20:20"
@@ -1738,7 +1738,7 @@
   {
     "version": 6,
     "ip_address": "119.162.94.47",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-12",
     "time": "2023-10-22T22:31:45.216ZT16:19:26"
@@ -1746,7 +1746,7 @@
   {
     "version": 7,
     "ip_address": "17.69.84.57",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-31",
     "time": "2023-05-20T12:59:15.870ZT19:53:01"
@@ -1754,7 +1754,7 @@
   {
     "version": 10,
     "ip_address": "40.235.154.107",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-03",
     "time": "2023-07-12T18:42:07.651ZT10:39:21"
@@ -1770,7 +1770,7 @@
   {
     "version": 10,
     "ip_address": "164.132.23.98",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-30",
     "time": "2023-09-18T00:55:07.494ZT05:39:29"
@@ -1778,7 +1778,7 @@
   {
     "version": 2,
     "ip_address": "207.125.160.122",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-17",
     "time": "2023-06-11T12:10:09.887ZT01:10:05"
@@ -1834,7 +1834,7 @@
   {
     "version": 10,
     "ip_address": "248.129.89.52",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-27",
     "time": "2023-03-13T08:45:48.626ZT04:57:24"
@@ -1882,7 +1882,7 @@
   {
     "version": 7,
     "ip_address": "254.175.198.171",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-06",
     "time": "2023-10-12T04:16:32.724ZT03:26:02"
@@ -1898,7 +1898,7 @@
   {
     "version": 7,
     "ip_address": "149.201.105.39",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-30",
     "time": "2023-03-25T07:44:28.270ZT09:30:08"
@@ -1906,7 +1906,7 @@
   {
     "version": 5,
     "ip_address": "74.102.11.254",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-22",
     "time": "2023-12-21T13:25:43.291ZT17:08:48"
@@ -1938,7 +1938,7 @@
   {
     "version": 5,
     "ip_address": "160.163.135.6",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-08",
     "time": "2023-11-26T09:12:38.900ZT16:03:54"
@@ -1946,7 +1946,7 @@
   {
     "version": 1,
     "ip_address": "80.171.12.157",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-30",
     "time": "2023-08-01T02:04:58.332ZT07:14:29"
@@ -1962,7 +1962,7 @@
   {
     "version": 6,
     "ip_address": "108.211.116.129",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-13",
     "time": "2023-01-24T13:36:29.977ZT00:00:57"
@@ -1978,7 +1978,7 @@
   {
     "version": 3,
     "ip_address": "197.104.247.17",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-22",
     "time": "2023-10-23T20:40:12.980ZT00:08:43"
@@ -1986,7 +1986,7 @@
   {
     "version": 3,
     "ip_address": "196.48.175.248",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-22",
     "time": "2023-06-14T09:59:29.720ZT10:19:33"
@@ -2034,7 +2034,7 @@
   {
     "version": 3,
     "ip_address": "174.94.182.23",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-08",
     "time": "2023-08-06T17:59:18.698ZT22:34:43"
@@ -2042,7 +2042,7 @@
   {
     "version": 2,
     "ip_address": "45.233.227.181",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-07",
     "time": "2023-07-26T03:15:05.744ZT10:29:43"
@@ -2050,7 +2050,7 @@
   {
     "version": 1,
     "ip_address": "194.72.99.57",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-27",
     "time": "2023-09-16T23:52:42.176ZT16:42:34"
@@ -2090,7 +2090,7 @@
   {
     "version": 2,
     "ip_address": "90.231.195.117",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-12",
     "time": "2023-10-04T08:14:55.461ZT11:54:05"
@@ -2098,7 +2098,7 @@
   {
     "version": 3,
     "ip_address": "233.126.1.239",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-06",
     "time": "2023-08-18T19:17:16.386ZT17:49:27"
@@ -2114,7 +2114,7 @@
   {
     "version": 3,
     "ip_address": "94.73.74.129",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-11",
     "time": "2023-06-04T14:59:23.103ZT16:59:17"
@@ -2138,7 +2138,7 @@
   {
     "version": 3,
     "ip_address": "14.151.30.37",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-07",
     "time": "2023-07-27T04:15:34.208ZT00:58:18"
@@ -2146,7 +2146,7 @@
   {
     "version": 6,
     "ip_address": "123.95.245.126",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-09",
     "time": "2023-03-22T21:48:59.995ZT14:20:15"
@@ -2194,7 +2194,7 @@
   {
     "version": 7,
     "ip_address": "252.188.139.172",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-16",
     "time": "2023-01-20T15:56:39.628ZT07:36:22"
@@ -2210,7 +2210,7 @@
   {
     "version": 8,
     "ip_address": "195.3.129.233",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-26",
     "time": "2023-03-22T23:01:30.256ZT18:59:45"
@@ -2250,7 +2250,7 @@
   {
     "version": 4,
     "ip_address": "159.23.23.116",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-03",
     "time": "2023-11-07T00:25:42.658ZT11:29:01"
@@ -2258,7 +2258,7 @@
   {
     "version": 10,
     "ip_address": "222.189.72.175",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-13",
     "time": "2023-05-20T15:13:41.198ZT07:14:30"
@@ -2274,7 +2274,7 @@
   {
     "version": 2,
     "ip_address": "96.198.127.132",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-27",
     "time": "2023-12-10T10:19:58.444ZT14:16:04"
@@ -2298,7 +2298,7 @@
   {
     "version": 9,
     "ip_address": "241.188.243.50",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-23",
     "time": "2023-11-10T10:53:33.744ZT13:40:42"
@@ -2314,7 +2314,7 @@
   {
     "version": 6,
     "ip_address": "74.72.33.84",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-19",
     "time": "2023-09-08T05:15:44.415ZT09:51:57"
@@ -2322,7 +2322,7 @@
   {
     "version": 10,
     "ip_address": "207.32.63.118",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-10",
     "time": "2023-10-23T08:20:54.888ZT12:25:40"
@@ -2330,7 +2330,7 @@
   {
     "version": 10,
     "ip_address": "236.97.178.156",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-01",
     "time": "2023-08-13T13:04:39.446ZT14:50:58"
@@ -2338,7 +2338,7 @@
   {
     "version": 6,
     "ip_address": "4.171.171.209",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-02",
     "time": "2023-11-08T04:14:29.056ZT08:08:55"
@@ -2386,7 +2386,7 @@
   {
     "version": 1,
     "ip_address": "186.199.99.223",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-08",
     "time": "2023-10-01T22:29:21.788ZT02:29:49"
@@ -2402,7 +2402,7 @@
   {
     "version": 3,
     "ip_address": "8.235.123.39",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-08",
     "time": "2023-07-13T01:11:38.270ZT18:39:16"
@@ -2410,7 +2410,7 @@
   {
     "version": 3,
     "ip_address": "35.191.247.241",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-26",
     "time": "2023-01-09T21:19:15.369ZT17:43:56"
@@ -2450,7 +2450,7 @@
   {
     "version": 3,
     "ip_address": "117.119.28.213",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-11",
     "time": "2023-08-29T01:59:05.631ZT09:23:06"
@@ -2474,7 +2474,7 @@
   {
     "version": 5,
     "ip_address": "89.182.255.87",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-18",
     "time": "2023-08-28T10:21:21.956ZT16:37:38"
@@ -2482,7 +2482,7 @@
   {
     "version": 4,
     "ip_address": "139.29.153.43",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-23",
     "time": "2023-03-09T22:03:42.881ZT04:14:22"
@@ -2506,7 +2506,7 @@
   {
     "version": 5,
     "ip_address": "147.7.195.112",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-14",
     "time": "2023-10-09T10:03:58.813ZT01:17:40"
@@ -2522,7 +2522,7 @@
   {
     "version": 4,
     "ip_address": "43.55.65.196",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-04",
     "time": "2023-07-11T10:11:18.396ZT23:15:59"
@@ -2546,7 +2546,7 @@
   {
     "version": 1,
     "ip_address": "41.116.66.188",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-06",
     "time": "2023-03-07T01:17:09.740ZT01:58:18"
@@ -2554,7 +2554,7 @@
   {
     "version": 6,
     "ip_address": "238.149.25.69",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-02",
     "time": "2023-09-23T22:27:45.244ZT10:14:35"
@@ -2578,7 +2578,7 @@
   {
     "version": 10,
     "ip_address": "88.104.109.179",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-22",
     "time": "2023-05-22T02:54:37.392ZT01:09:12"
@@ -2586,7 +2586,7 @@
   {
     "version": 1,
     "ip_address": "23.116.45.7",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-13",
     "time": "2023-08-27T21:21:20.819ZT20:09:01"
@@ -2610,7 +2610,7 @@
   {
     "version": 8,
     "ip_address": "92.224.102.73",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-06",
     "time": "2023-10-21T14:11:20.850ZT22:51:27"
@@ -2634,7 +2634,7 @@
   {
     "version": 4,
     "ip_address": "192.88.136.128",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-08",
     "time": "2023-02-09T12:38:56.159ZT03:12:26"
@@ -2658,7 +2658,7 @@
   {
     "version": 7,
     "ip_address": "74.201.178.36",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-23",
     "time": "2023-09-24T02:28:52.884ZT16:45:51"
@@ -2674,7 +2674,7 @@
   {
     "version": 2,
     "ip_address": "191.154.204.159",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-26",
     "time": "2023-10-09T18:14:25.099ZT06:21:20"
@@ -2682,7 +2682,7 @@
   {
     "version": 6,
     "ip_address": "174.101.239.148",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-01",
     "time": "2023-06-07T19:55:22.154ZT11:35:46"
@@ -2690,7 +2690,7 @@
   {
     "version": 10,
     "ip_address": "15.172.162.130",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-11",
     "time": "2023-01-03T04:02:49.854ZT19:21:15"
@@ -2698,7 +2698,7 @@
   {
     "version": 10,
     "ip_address": "83.29.77.244",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-25",
     "time": "2023-03-17T21:37:43.147ZT22:09:32"
@@ -2706,7 +2706,7 @@
   {
     "version": 7,
     "ip_address": "219.238.52.184",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-12",
     "time": "2023-09-05T20:44:48.291ZT05:28:46"
@@ -2730,7 +2730,7 @@
   {
     "version": 5,
     "ip_address": "100.213.55.154",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-05",
     "time": "2023-11-16T10:10:51.522ZT20:22:32"
@@ -2738,7 +2738,7 @@
   {
     "version": 8,
     "ip_address": "49.88.220.254",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-25",
     "time": "2023-07-03T17:26:54.293ZT21:58:55"
@@ -2746,7 +2746,7 @@
   {
     "version": 7,
     "ip_address": "29.94.81.191",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-15",
     "time": "2023-01-12T05:46:29.940ZT06:24:04"
@@ -2778,7 +2778,7 @@
   {
     "version": 4,
     "ip_address": "63.152.31.94",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-09",
     "time": "2023-08-21T00:27:41.177ZT07:05:14"
@@ -2786,7 +2786,7 @@
   {
     "version": 1,
     "ip_address": "109.86.183.123",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-07",
     "time": "2023-03-29T02:48:41.736ZT16:26:12"
@@ -2794,7 +2794,7 @@
   {
     "version": 2,
     "ip_address": "239.58.106.162",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-02",
     "time": "2023-02-13T05:19:58.713ZT06:40:57"
@@ -2818,7 +2818,7 @@
   {
     "version": 2,
     "ip_address": "11.199.17.74",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-26",
     "time": "2023-04-30T00:51:38.876ZT09:59:18"
@@ -2834,7 +2834,7 @@
   {
     "version": 3,
     "ip_address": "229.218.17.196",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-03",
     "time": "2023-02-05T05:00:59.321ZT06:00:44"
@@ -2858,7 +2858,7 @@
   {
     "version": 4,
     "ip_address": "20.197.10.12",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-26",
     "time": "2023-10-26T23:24:25.666ZT18:47:07"
@@ -2866,7 +2866,7 @@
   {
     "version": 3,
     "ip_address": "68.61.236.198",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-30",
     "time": "2023-12-08T11:48:56.498ZT06:21:57"
@@ -2898,7 +2898,7 @@
   {
     "version": 10,
     "ip_address": "78.57.33.34",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-19",
     "time": "2023-02-18T07:22:32.257ZT17:58:40"
@@ -2906,7 +2906,7 @@
   {
     "version": 5,
     "ip_address": "171.87.241.104",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-23",
     "time": "2023-03-12T23:31:49.805ZT09:58:17"
@@ -2914,7 +2914,7 @@
   {
     "version": 9,
     "ip_address": "221.229.101.25",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-06",
     "time": "2023-06-05T02:36:45.884ZT11:06:45"
@@ -2922,7 +2922,7 @@
   {
     "version": 7,
     "ip_address": "180.63.178.84",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-24",
     "time": "2023-07-21T20:44:05.924ZT08:19:40"
@@ -2930,7 +2930,7 @@
   {
     "version": 7,
     "ip_address": "224.171.250.199",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-09",
     "time": "2023-01-10T12:19:10.616ZT22:15:13"
@@ -2970,7 +2970,7 @@
   {
     "version": 5,
     "ip_address": "224.198.243.26",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-05",
     "time": "2023-12-07T05:38:04.403ZT09:23:21"
@@ -2978,7 +2978,7 @@
   {
     "version": 9,
     "ip_address": "118.144.151.246",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-09",
     "time": "2023-07-23T09:41:07.957ZT02:20:15"
@@ -2986,7 +2986,7 @@
   {
     "version": 3,
     "ip_address": "116.1.225.23",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-05",
     "time": "2023-02-27T12:01:02.561ZT13:34:58"
@@ -2994,7 +2994,7 @@
   {
     "version": 3,
     "ip_address": "73.157.113.223",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-04",
     "time": "2023-04-30T06:09:54.240ZT18:50:19"
@@ -3010,7 +3010,7 @@
   {
     "version": 4,
     "ip_address": "196.5.47.14",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-20",
     "time": "2023-07-21T23:33:11.535ZT16:49:15"
@@ -3034,7 +3034,7 @@
   {
     "version": 5,
     "ip_address": "235.22.100.219",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-14",
     "time": "2023-10-23T23:47:52.633ZT07:29:55"
@@ -3042,7 +3042,7 @@
   {
     "version": 10,
     "ip_address": "56.138.2.134",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-02",
     "time": "2023-05-25T20:14:34.323ZT21:12:02"
@@ -3106,7 +3106,7 @@
   {
     "version": 7,
     "ip_address": "219.43.105.14",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-11",
     "time": "2023-04-05T15:56:35.310ZT03:47:18"
@@ -3130,7 +3130,7 @@
   {
     "version": 2,
     "ip_address": "77.32.40.74",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-10",
     "time": "2023-07-03T03:06:50.982ZT03:28:09"
@@ -3146,7 +3146,7 @@
   {
     "version": 4,
     "ip_address": "125.13.28.172",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-09",
     "time": "2023-08-11T00:12:52.804ZT00:23:34"
@@ -3154,7 +3154,7 @@
   {
     "version": 5,
     "ip_address": "64.163.44.187",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-24",
     "time": "2023-04-28T03:03:32.717ZT21:08:01"
@@ -3186,7 +3186,7 @@
   {
     "version": 3,
     "ip_address": "55.249.93.54",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-09",
     "time": "2023-11-02T18:37:32.698ZT08:07:39"
@@ -3210,7 +3210,7 @@
   {
     "version": 1,
     "ip_address": "151.92.195.225",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-12",
     "time": "2023-04-16T23:10:59.580ZT20:37:26"
@@ -3226,7 +3226,7 @@
   {
     "version": 1,
     "ip_address": "195.184.73.208",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-03",
     "time": "2023-12-16T18:32:29.769ZT05:52:54"
@@ -3258,7 +3258,7 @@
   {
     "version": 10,
     "ip_address": "78.92.244.79",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-17",
     "time": "2023-04-08T09:12:30.968ZT23:13:48"
@@ -3298,7 +3298,7 @@
   {
     "version": 6,
     "ip_address": "65.59.193.195",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-01",
     "time": "2023-01-16T00:19:27.889ZT07:49:07"
@@ -3362,7 +3362,7 @@
   {
     "version": 6,
     "ip_address": "198.35.122.230",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-20",
     "time": "2023-07-07T12:19:32.650ZT02:28:03"
@@ -3370,7 +3370,7 @@
   {
     "version": 10,
     "ip_address": "151.80.111.21",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-14",
     "time": "2023-11-30T17:09:42.461ZT19:26:32"
@@ -3386,7 +3386,7 @@
   {
     "version": 3,
     "ip_address": "128.1.111.244",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-21",
     "time": "2023-07-08T15:02:31.274ZT15:46:09"
@@ -3394,7 +3394,7 @@
   {
     "version": 1,
     "ip_address": "69.13.242.106",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-13",
     "time": "2023-05-20T17:27:04.970ZT13:32:39"
@@ -3402,7 +3402,7 @@
   {
     "version": 3,
     "ip_address": "19.210.45.196",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-05",
     "time": "2023-08-18T08:15:59.172ZT07:48:19"
@@ -3410,7 +3410,7 @@
   {
     "version": 6,
     "ip_address": "47.171.67.88",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-30",
     "time": "2023-05-05T23:41:10.766ZT22:39:34"
@@ -3418,7 +3418,7 @@
   {
     "version": 1,
     "ip_address": "226.129.203.92",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-21",
     "time": "2023-10-11T05:52:11.711ZT21:00:11"
@@ -3426,7 +3426,7 @@
   {
     "version": 5,
     "ip_address": "96.132.233.77",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-24",
     "time": "2023-09-16T15:00:22.022ZT08:43:54"
@@ -3442,7 +3442,7 @@
   {
     "version": 10,
     "ip_address": "17.108.167.183",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-27",
     "time": "2023-09-07T21:32:16.442ZT12:10:13"
@@ -3466,7 +3466,7 @@
   {
     "version": 9,
     "ip_address": "212.70.236.158",
-    "time_zone": -10,
+    "time_zone": 10,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-11",
     "time": "2023-10-11T07:43:38.541ZT00:30:19"
@@ -3498,7 +3498,7 @@
   {
     "version": 6,
     "ip_address": "216.24.221.135",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-11",
     "time": "2023-01-24T19:51:33.197ZT19:12:10"
@@ -3514,7 +3514,7 @@
   {
     "version": 7,
     "ip_address": "70.30.33.109",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-21",
     "time": "2023-09-23T18:22:55.782ZT15:58:25"
@@ -3530,7 +3530,7 @@
   {
     "version": 1,
     "ip_address": "164.167.177.81",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-01",
     "time": "2023-10-05T07:15:54.746ZT02:04:16"
@@ -3554,7 +3554,7 @@
   {
     "version": 6,
     "ip_address": "122.205.103.250",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-12-09",
     "time": "2023-06-09T11:24:07.474ZT22:51:43"
@@ -3562,7 +3562,7 @@
   {
     "version": 7,
     "ip_address": "249.220.130.238",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-27",
     "time": "2023-09-24T17:50:08.589ZT19:00:53"
@@ -3578,7 +3578,7 @@
   {
     "version": 5,
     "ip_address": "32.125.154.130",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-08",
     "time": "2023-07-16T13:31:34.634ZT13:27:08"
@@ -3626,7 +3626,7 @@
   {
     "version": 3,
     "ip_address": "97.36.161.138",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-24",
     "time": "2023-10-29T14:16:01.460ZT05:29:29"
@@ -3634,7 +3634,7 @@
   {
     "version": 6,
     "ip_address": "206.36.64.25",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-08-23",
     "time": "2023-04-03T07:05:07.848ZT11:36:22"
@@ -3658,7 +3658,7 @@
   {
     "version": 5,
     "ip_address": "201.116.97.226",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-19",
     "time": "2023-06-07T20:36:33.117ZT10:02:26"
@@ -3666,7 +3666,7 @@
   {
     "version": 6,
     "ip_address": "85.242.188.53",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-31",
     "time": "2023-10-26T04:18:04.070ZT17:14:19"
@@ -3674,7 +3674,7 @@
   {
     "version": 3,
     "ip_address": "30.10.175.89",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-20",
     "time": "2023-07-25T21:34:21.971ZT09:55:57"
@@ -3682,7 +3682,7 @@
   {
     "version": 4,
     "ip_address": "83.215.198.231",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-25",
     "time": "2023-07-25T06:50:41.144ZT22:08:46"
@@ -3690,7 +3690,7 @@
   {
     "version": 5,
     "ip_address": "174.243.79.129",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-29",
     "time": "2023-12-19T19:54:59.630ZT08:01:17"
@@ -3698,7 +3698,7 @@
   {
     "version": 2,
     "ip_address": "192.142.105.147",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-02",
     "time": "2023-10-03T09:57:24.289ZT20:07:23"
@@ -3722,7 +3722,7 @@
   {
     "version": 2,
     "ip_address": "127.118.4.38",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-30",
     "time": "2023-08-16T09:51:11.924ZT15:18:39"
@@ -3738,7 +3738,7 @@
   {
     "version": 10,
     "ip_address": "4.130.129.177",
-    "time_zone": -1,
+    "time_zone": 1,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-23",
     "time": "2023-07-10T19:42:25.445ZT17:23:05"
@@ -3746,7 +3746,7 @@
   {
     "version": 5,
     "ip_address": "57.176.217.151",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-24",
     "time": "2023-06-08T22:33:21.337ZT02:19:56"
@@ -3754,7 +3754,7 @@
   {
     "version": 6,
     "ip_address": "154.127.129.234",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-29",
     "time": "2023-01-13T02:57:43.083ZT06:52:43"
@@ -3762,7 +3762,7 @@
   {
     "version": 5,
     "ip_address": "220.1.51.45",
-    "time_zone": -7,
+    "time_zone": 7,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-07",
     "time": "2023-10-15T16:54:02.573ZT04:57:08"
@@ -3778,7 +3778,7 @@
   {
     "version": 7,
     "ip_address": "175.187.183.82",
-    "time_zone": -2,
+    "time_zone": 2,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-10-29",
     "time": "2023-02-22T06:48:48.873ZT19:38:29"
@@ -3786,7 +3786,7 @@
   {
     "version": 3,
     "ip_address": "166.154.229.175",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-02-18",
     "time": "2023-07-13T06:18:21.542ZT11:29:52"
@@ -3794,7 +3794,7 @@
   {
     "version": 10,
     "ip_address": "167.99.158.24",
-    "time_zone": -12,
+    "time_zone": 12,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-07-09",
     "time": "2023-08-08T19:36:33.443ZT15:55:50"
@@ -3810,7 +3810,7 @@
   {
     "version": 7,
     "ip_address": "156.5.69.91",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-05-25",
     "time": "2023-02-06T10:09:48.274ZT13:04:08"
@@ -3834,7 +3834,7 @@
   {
     "version": 1,
     "ip_address": "229.52.118.209",
-    "time_zone": -8,
+    "time_zone": 8,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-30",
     "time": "2023-03-18T10:30:16.807ZT13:32:19"
@@ -3842,7 +3842,7 @@
   {
     "version": 6,
     "ip_address": "108.9.239.218",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-25",
     "time": "2023-05-29T03:16:58.225ZT07:10:52"
@@ -3850,7 +3850,7 @@
   {
     "version": 5,
     "ip_address": "140.117.25.65",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-05",
     "time": "2023-05-11T15:18:37.373ZT01:14:17"
@@ -3882,7 +3882,7 @@
   {
     "version": 1,
     "ip_address": "241.116.61.68",
-    "time_zone": -5,
+    "time_zone": 5,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-22",
     "time": "2023-06-05T13:50:13.763ZT01:28:27"
@@ -3898,7 +3898,7 @@
   {
     "version": 10,
     "ip_address": "119.77.4.110",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-09-19",
     "time": "2023-04-22T08:57:58.666ZT10:13:08"
@@ -3922,7 +3922,7 @@
   {
     "version": 8,
     "ip_address": "97.168.137.167",
-    "time_zone": -3,
+    "time_zone": 3,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-03-18",
     "time": "2023-11-22T02:14:44.412ZT08:48:57"
@@ -3930,7 +3930,7 @@
   {
     "version": 8,
     "ip_address": "37.24.188.86",
-    "time_zone": -11,
+    "time_zone": 11,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-08",
     "time": "2023-11-27T04:06:28.679ZT00:33:54"
@@ -3938,7 +3938,7 @@
   {
     "version": 10,
     "ip_address": "205.152.191.40",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-27",
     "time": "2023-07-28T16:55:22.862ZT16:37:53"
@@ -3954,7 +3954,7 @@
   {
     "version": 2,
     "ip_address": "235.41.219.97",
-    "time_zone": -6,
+    "time_zone": 6,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-04-23",
     "time": "2023-01-29T13:29:38.564ZT01:43:14"
@@ -3962,7 +3962,7 @@
   {
     "version": 10,
     "ip_address": "2.9.90.93",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-11-26",
     "time": "2023-01-30T13:53:33.102ZT04:05:15"
@@ -3978,7 +3978,7 @@
   {
     "version": 5,
     "ip_address": "187.52.23.33",
-    "time_zone": -4,
+    "time_zone": 4,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-06-18",
     "time": "2023-07-12T06:17:47.833ZT17:15:31"
@@ -3986,7 +3986,7 @@
   {
     "version": 5,
     "ip_address": "164.128.216.232",
-    "time_zone": -9,
+    "time_zone": 9,
     "hw_platform": "platform_xyz",
     "reportDate": "2023-01-31",
     "time": "2023-02-01T10:34:44.329ZT03:50:42"
