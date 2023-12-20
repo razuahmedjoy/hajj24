@@ -1524,6 +1524,7 @@ class Command(BaseCommand):
 
                     # Assign the random tent ID to the tent field
                     camera_info["tent"] = random_tent.id
+                    # camera_info["status"] = random.
 
                     camera_serializer = CameraSerializer(data=camera_info)
                     if camera_serializer.is_valid():

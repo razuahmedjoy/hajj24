@@ -25,7 +25,7 @@ User = get_user_model()
 class UserListCreateAPIView(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 class UserRegistrationAPIView(APIView):
     permission_classes = [AllowAny]
 
