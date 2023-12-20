@@ -111,16 +111,17 @@ class CameraListCreateAPIView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         camera_id = self.request.query_params.get('id')
+        queryset = Camera.objects.all()
+
         if camera_id:
-            return Camera.objects.filter(id=camera_id).prefetch_related(
-                Prefetch('counter_histories', queryset=CounterHistory.objects.all()),
-                Prefetch('heartbeats', queryset=CameraHeartbeat.objects.all())
-            )
-        else:
-            return Camera.objects.prefetch_related(
-                Prefetch('counter_histories', queryset=CounterHistory.objects.all()),
-                Prefetch('heartbeats', queryset=CameraHeartbeat.objects.all())
-            )
+            queryset = queryset.filter(id=camera_id)
+
+        queryset = queryset.prefetch_related(
+            Prefetch('counter_histories', queryset=CounterHistory.objects.all()),
+            Prefetch('heartbeats', queryset=CameraHeartbeat.objects.all())
+        )
+        
+        return queryset
 
 class CameraRetrieveUpdateDestroyAPIView(generics.RetrieveAPIView):
     queryset = Camera.objects.all()

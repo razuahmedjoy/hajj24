@@ -127,7 +127,7 @@ class CameraDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Camera
-        fields = ['id', 'sn', 'tent', 'tent_details', 'heart_beat_time', 'created_at', 'updated_at', 'counter_histories', 'heartbeats']
+        fields = ['id', 'sn', 'tent', 'tent_details', 'heart_beat_time', 'created_at', 'updated_at', 'counter_histories', 'heartbeats', 'status']
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
