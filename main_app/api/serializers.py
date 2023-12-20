@@ -44,7 +44,7 @@ class CameraSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Camera
-        fields = ('id', 'sn', 'tent', 'tent_details', 'heart_beat_time', 'created_at', 'updated_at')
+        fields = ('id', 'sn', 'tent', 'tent_details', 'heart_beat_time', 'created_at', 'updated_at', 'status')  # Include 'status' field
 
     def create(self, validated_data):
         camera = Camera.objects.create(**validated_data)
