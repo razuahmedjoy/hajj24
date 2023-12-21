@@ -335,8 +335,12 @@ class CounterHistoryByDateView(APIView):
             totals_in=Sum("total_in"),
             totals_out=Sum("total_out"),
             )
+            total_in_sum = tent_history.aggregate(total_in_sum=models.Sum('total_in'))['total_in_sum'] or 0
+            total_out_sum = tent_history.aggregate(total_out_sum=models.Sum('total_out'))['total_out_sum'] or 0
             response_data = {
                 'history': tent_history,
+                'total_in_sum': total_in_sum,
+                'total_out_sum': total_out_sum,
             }
             return Response(response_data, status=status.HTTP_200_OK)
         except Exception as e:
