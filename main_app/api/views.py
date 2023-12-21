@@ -17,6 +17,25 @@ from django.shortcuts import get_object_or_404
 from rest_framework.exceptions import ValidationError
 from django.db.models import Prefetch
 from datetime import date, timedelta
+from django.db.models import Count, Sum, Avg, F, Case, Q, When, ExpressionWrapper
+from django.db.models.functions import (
+    ExtractDay,
+    ExtractMonth,
+    ExtractMinute,
+    ExtractYear,
+    ExtractHour,
+    Cast,
+)
+from datetime import datetime, timedelta
+from collections import Counter
+from calendar import monthrange
+import calendar
+from rest_framework.authtoken.models import Token
+from django.db import models
+
+from django.utils import timezone
+
+import json
 
 User = get_user_model()
 
@@ -301,36 +320,25 @@ class CounterHistoryByDateView(APIView):
         try:
             tent_id = request.query_params.get('tent', None)
             date_str = request.query_params.get('date', None)
-
             if not tent_id or not date_str:
                 return Response({'error': 'Missing required parameters'}, status=status.HTTP_400_BAD_REQUEST)
-
-            # Parse the date parameter in the format day-month-year
             try:
                 day, month, year = map(int, date_str.split('-'))
             except ValueError:
                 return Response({'error': 'Invalid date format'}, status=status.HTTP_400_BAD_REQUEST)
-
             tent_history = CounterHistory.objects.filter(
                 camera__tent_id=tent_id,
                 end_time__year=year,
                 end_time__month=month,
                 end_time__day=day,
+            ).values("camera").annotate(
+            totals_in=Sum("total_in"),
+            totals_out=Sum("total_out"),
             )
-
-            total_in_sum = tent_history.aggregate(total_in_sum=models.Sum('total_in'))['total_in_sum'] or 0
-            total_out_sum = tent_history.aggregate(total_out_sum=models.Sum('total_out'))['total_out_sum'] or 0
-
-            serialized_history = CreateCounterHistorySerializer(tent_history, many=True).data
-
             response_data = {
-                'history': serialized_history,
-                'total_in_sum': total_in_sum,
-                'total_out_sum': total_out_sum,
+                'history': tent_history,
             }
-
             return Response(response_data, status=status.HTTP_200_OK)
-
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
