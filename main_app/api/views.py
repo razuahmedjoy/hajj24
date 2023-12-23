@@ -252,9 +252,7 @@ class CounterHistoryCreateAPIView(APIView):
     def post(self, request, *args, **kwargs):
         sn = request.data.get('sn')
         camera = get_object_or_404(Camera, sn=sn)
-        if id == True:
-            pass
-
+        
         counter_history_data = {
             'camera': camera.id,
             'sn': sn,
@@ -321,20 +319,43 @@ class CounterHistoryByDateView(APIView):
             tent_id = request.query_params.get('tent', None)
             if not tent_id:
                 return Response({'error': 'Missing required parameters'}, status=status.HTTP_400_BAD_REQUEST)
+
             tent_history = CounterHistory.objects.filter(
                 camera__tent_id=tent_id,
             ).values("camera").annotate(
-            totals_in=Sum("total_in"),
-            totals_out=Sum("total_out"),
+                totals_in=Sum("total_in"),
+                totals_out=Sum("total_out"),
             )
-            total_in_sum = tent_history.aggregate(total_in_sum=models.Sum('total_in'))['total_in_sum'] or 0
-            total_out_sum = tent_history.aggregate(total_out_sum=models.Sum('total_out'))['total_out_sum'] or 0
+
+            camera_data = []
+            total_in_sum = 0
+            total_out_sum = 0
+
+            for entry in tent_history:
+                camera_id = entry['camera']
+                camera = Camera.objects.get(id=camera_id)
+                serializer = CameraSerializer(camera)
+                camera_status = serializer.data['status']
+
+                total_in_sum += entry['totals_in']
+                total_out_sum += entry['totals_out']
+
+                camera_entry = {
+                    'camera': camera_id,
+                    'totals_in': entry['totals_in'],
+                    'totals_out': entry['totals_out'],
+                    'status': camera_status,
+                }
+                camera_data.append(camera_entry)
+
             response_data = {
-                'history': tent_history,
+                'history': camera_data,
                 'total_in_sum': total_in_sum,
                 'total_out_sum': total_out_sum,
             }
+
             return Response(response_data, status=status.HTTP_200_OK)
+
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
