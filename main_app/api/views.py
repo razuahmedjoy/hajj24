@@ -319,18 +319,10 @@ class CounterHistoryByDateView(APIView):
     def get(self, request):
         try:
             tent_id = request.query_params.get('tent', None)
-            date_str = request.query_params.get('date', None)
-            if not tent_id or not date_str:
+            if not tent_id:
                 return Response({'error': 'Missing required parameters'}, status=status.HTTP_400_BAD_REQUEST)
-            try:
-                day, month, year = map(int, date_str.split('-'))
-            except ValueError:
-                return Response({'error': 'Invalid date format'}, status=status.HTTP_400_BAD_REQUEST)
             tent_history = CounterHistory.objects.filter(
                 camera__tent_id=tent_id,
-                end_time__year=year,
-                end_time__month=month,
-                end_time__day=day,
             ).values("camera").annotate(
             totals_in=Sum("total_in"),
             totals_out=Sum("total_out"),
