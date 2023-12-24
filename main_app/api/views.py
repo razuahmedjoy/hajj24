@@ -15,7 +15,7 @@ from django.db.models import Q
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from rest_framework.exceptions import ValidationError
-from django.db.models import Prefetch
+from django.db.models import Prefetch, Sum, Count
 from datetime import date, timedelta
 from django.db.models import Count, Sum, Avg, F, Case, Q, When, ExpressionWrapper
 from django.db.models.functions import (
@@ -159,6 +159,15 @@ class CameraRetrieveUpdateDestroyAPIView(generics.RetrieveAPIView):
         serializer_data['heartbeats'] = heartbeat_serializer.data
 
         return Response(serializer_data)
+
+class CounterHistoryListView(APIView):
+    def get(self, request):
+        try:
+            counter_histories = CounterHistory.objects.all()
+            serializer = CounterHistorySerializer(counter_histories, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class CounterHistoryListCreateView(generics.ListCreateAPIView):
     # permission_classes = [IsAuthenticated]
@@ -360,3 +369,45 @@ class CounterHistoryByDateView(APIView):
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
+class CameraCounterHistoryGraphView(APIView):
+    def get(self, request, tent_id, *args, **kwargs):
+        try:
+            tent = Tent.objects.get(id=tent_id)
+        except Tent.DoesNotExist:
+            return Response({'error': 'Tent not found'}, status=404)
+
+        date_str = self.request.query_params.get('date')
+        if not date_str:
+            return Response({'error': 'Date parameter is required'}, status=400)
+
+        try:
+            date = datetime.strptime(date_str, '%d-%m-%Y').date()
+        except ValueError:
+            return Response({'error': 'Invalid date format. Use DD-MM-YYYY'}, status=400)
+
+        counter_history_data = self.get_counter_history_data(tent, date)
+
+        return Response(counter_history_data)
+
+    def get_counter_history_data(self, tent, date):
+        counter_history_data = {'tent_id': tent.id, 'date': date.strftime('%d-%m-%Y'), 'counter_history': []}
+
+        cameras = tent.camera_set.all()
+
+        for camera in cameras:
+            hourly_data = CounterHistory.objects.filter(
+                camera=camera,
+                start_time__date=date,
+                end_time__date=date
+            ).values('start_time__hour').annotate(
+                total_in=Sum('total_in'),
+                total_out=Sum('total_out'),
+                total=Sum('total')
+            )
+
+            for entry in hourly_data:
+                entry['camera_id'] = camera.id
+                entry['camera_sn'] = camera.sn
+                counter_history_data['counter_history'].append(entry)
+
+        return counter_history_data

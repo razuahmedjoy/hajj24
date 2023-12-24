@@ -27,7 +27,6 @@ class CameraTentSerializer(serializers.ModelSerializer):
         return camera
 
 class TentSerializer(serializers.ModelSerializer):
-    # cameras = CameraTentSerializer(many=True, read_only=True)
     cameras = serializers.SerializerMethodField('get_cameras')
     created_by = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
     class Meta:
@@ -50,6 +49,11 @@ class CameraSerializer(serializers.ModelSerializer):
         camera = Camera.objects.create(**validated_data)
         return camera
 
+class CounterHistorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CounterHistory
+        fields = '__all__'
+
 class CreateCounterHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = CounterHistory
@@ -57,17 +61,10 @@ class CreateCounterHistorySerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         sn = validated_data.get("sn", None)
-        camera = validated_data.get("camera")
-        existing_history = CounterHistory.objects.filter(camera=camera, sn=sn).first()
-        if existing_history:
-            existing_history.total_in = validated_data.get("total_in", 0)
-            existing_history.total_out = validated_data.get("total_out", 0)
-            existing_history.total = validated_data.get("total", 0)
-            existing_history.start_time = validated_data.get("start_time", None)
-            existing_history.end_time = validated_data.get("end_time", None)
-            existing_history.save()
-            return existing_history
+        camera = Camera.objects.filter(sn=sn).first()
 
+        if not camera:
+            camera = Camera.objects.create(sn=sn)
 
         history = CounterHistory.objects.create(
             camera=camera,
