@@ -21,5 +21,7 @@ urlpatterns = [
     path('create-counter-history', CounterHistoryCreateAPIView.as_view(), name='create-counter-history'),
     path('create_picture/', PictureCreateView.as_view(), name='create-picture'),
     path('tent-counter',CounterHistoryByDateView.as_view(), name="tent-counter"),
-    path('tent/<int:tent_id>/graph-counter', CameraCounterHistoryGraphView.as_view(), name="counter-ontime")
+    path('tent/<int:tent_id>/graph-counter-hour', CameraCounterHistoryGraphViewHour.as_view(), name="counter-hour"),
+    path('tent/<int:tent_id>/graph-counter-day', CameraCounterHistoryGraphViewDay.as_view(), name="counter-day"),
+    path('tent/<int:tent_id>/graph-counter-month', CameraCounterHistoryGraphViewMonth.as_view(), name="counter-month"),
 ]

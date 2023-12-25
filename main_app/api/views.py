@@ -369,7 +369,7 @@ class CounterHistoryByDateView(APIView):
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-class CameraCounterHistoryGraphView(APIView):
+class CameraCounterHistoryGraphViewHour(APIView):
     def get(self, request, tent_id, *args, **kwargs):
         try:
             tent = Tent.objects.get(id=tent_id)
@@ -402,6 +402,8 @@ class CameraCounterHistoryGraphView(APIView):
                 total=Sum('total')
             )
 
+        print(type(hourly_data))
+
         date_total_in = Counter({d["hour"]: d["total_in"] for d in hourly_data})
         date_total_out = Counter({d["hour"]: d["total_out"] for d in hourly_data})
         date_total_stay = Counter({d["hour"]: d["total"] for d in hourly_data})
@@ -412,3 +414,100 @@ class CameraCounterHistoryGraphView(APIView):
         data = {"labels": labels, "total_in": result_in, "total_out": result_out, "staying": result_stay }
 
         return data
+
+class CameraCounterHistoryGraphViewDay(APIView):
+    def get(self, request, tent_id, *args, **kwargs):
+        try:
+            tent = Tent.objects.get(id=tent_id)
+        except Tent.DoesNotExist:
+            return Response({'error': 'Tent not found'}, status=404)
+
+        start_date_str = self.request.query_params.get('start_date')
+        end_date_str = self.request.query_params.get('end_date')
+
+        if not start_date_str or not end_date_str:
+            return Response({'error': 'Both start_date and end_date parameters are required'}, status=400)
+
+        try:
+            start_date = datetime.strptime(start_date_str, '%d-%m-%Y').date()
+            end_date = datetime.strptime(end_date_str, '%d-%m-%Y').date()
+        except ValueError:
+            return Response({'error': 'Invalid date format. Use DD-MM-YYYY'}, status=400)
+
+        counter_history_data = self.get_counter_history_data(tent, start_date, end_date)
+
+        return Response(counter_history_data)
+
+    def get_counter_history_data(self, tent, start_date, end_date):
+        counter_history_data = []
+
+        daily_data = CounterHistory.objects.filter(
+            camera__tent=tent,
+            start_time__date__range=(start_date, end_date)
+        ).values(hour=ExtractHour('start_time')).annotate(
+            total_in=Sum('total_in'),
+            total_out=Sum('total_out'),
+            total=Sum('total')
+        )
+        counter_history_list = list(daily_data)
+        for entry in counter_history_list:
+            counter_history_data.append({
+                'hour': entry['hour'],
+                'total_in': entry['total_in'],
+                'total_out': entry['total_out'],
+                'total': entry['total'],
+            })
+
+        return counter_history_data
+
+
+
+class CameraCounterHistoryGraphViewMonth(APIView):
+    def get(self, request, tent_id, *args, **kwargs):
+        try:
+            tent = Tent.objects.get(id=tent_id)
+        except Tent.DoesNotExist:
+            return Response({'error': 'Tent not found'}, status=404)
+
+        date_str = self.request.query_params.get('date')
+        if not date_str:
+            return Response({'error': 'Date parameter is required'}, status=400)
+
+        try:
+            date = datetime.strptime(date_str, '%m-%Y').date()
+        except ValueError:
+            return Response({'error': 'Invalid date format. Use MM-YYYY'}, status=400)
+
+        counter_history_data = self.get_counter_history_data(tent, date)
+
+        return Response(counter_history_data)
+
+    def get_counter_history_data(self, tent, date):
+        monthly_data = CounterHistory.objects.filter(
+            camera__tent=tent,
+            start_time__year=date.year,
+            start_time__month=date.month
+        ).values(day=ExtractDay("start_time")).annotate(
+            total_in=Sum('total_in'),
+            total_out=Sum('total_out'),
+            total=Sum('total')
+        )
+        counter_history_list = list(monthly_data)
+        date_total_in = Counter({d["day"]: d["total_in"] for d in counter_history_list})
+        date_total_out = Counter({d["day"]: d["total_out"] for d in counter_history_list})
+        date_total_stay = Counter({d["day"]: d["total"] for d in counter_history_list})
+
+        __, ds = monthrange(datetime.today().year, datetime.today().month)
+        result_in = [date_total_in[i] for i in range(1, ds + 1)]
+        result_out = [date_total_out[i] for i in range(1, ds + 1)]
+        result_stay = [date_total_stay[i] for i in range(1, ds + 1)]
+
+        labels = ["Day " + str(i) for i in range(1, ds + 1)]
+
+        data = {"labels": labels, "total_in": result_in, "total_out": result_out, "staying": result_stay }
+
+        return data
+
+
+
+
