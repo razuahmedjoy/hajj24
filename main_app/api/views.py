@@ -402,12 +402,13 @@ class CameraCounterHistoryGraphView(APIView):
                 total=Sum('total')
             )
 
-        # print(hourly_data)
-
-        data_counterised = Counter({d["hour"]: d["total_in"] for d in hourly_data})
-        result = [data_counterised[i] for i in range(0, 23 + 1)]
-        labels = ["Hour " + str(i) for i in range(0, 23 + 1)]
-        data = {"labels": labels, "chartdata": result}
-        print(data)
+        date_total_in = Counter({d["hour"]: d["total_in"] for d in hourly_data})
+        date_total_out = Counter({d["hour"]: d["total_out"] for d in hourly_data})
+        date_total_stay = Counter({d["hour"]: d["total"] for d in hourly_data})
+        result_in = [date_total_in[i] for i in range(0, 23 + 1)]
+        result_out = [date_total_out[i] for i in range(0, 23 + 1)]
+        result_stay = [date_total_stay[i] for i in range(0, 23 + 1)]
+        labels = ["Hour " + str(i) for i in range(1, 24 + 1)]
+        data = {"labels": labels, "total_in": result_in, "total_out": result_out, "staying": result_stay }
 
         return data
