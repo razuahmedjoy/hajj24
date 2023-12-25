@@ -392,22 +392,22 @@ class CameraCounterHistoryGraphView(APIView):
     def get_counter_history_data(self, tent, date):
         counter_history_data = {'tent_id': tent.id, 'date': date.strftime('%d-%m-%Y'), 'counter_history': []}
 
-        cameras = tent.camera_set.all()
-
-        for camera in cameras:
-            hourly_data = CounterHistory.objects.filter(
-                camera=camera,
+        # cameras = tent.camera_set.all()
+        hourly_data = CounterHistory.objects.filter(
+                camera__tent=tent,
                 start_time__date=date,
-                end_time__date=date
-            ).values('start_time__hour').annotate(
+            ).values(hour=ExtractHour("start_time")).annotate(
                 total_in=Sum('total_in'),
                 total_out=Sum('total_out'),
                 total=Sum('total')
             )
 
-            for entry in hourly_data:
-                entry['camera_id'] = camera.id
-                entry['camera_sn'] = camera.sn
-                counter_history_data['counter_history'].append(entry)
+        # print(hourly_data)
 
-        return counter_history_data
+        data_counterised = Counter({d["hour"]: d["total_in"] for d in hourly_data})
+        result = [data_counterised[i] for i in range(0, 23 + 1)]
+        labels = ["Hour " + str(i) for i in range(0, 23 + 1)]
+        data = {"labels": labels, "chartdata": result}
+        print(data)
+
+        return data
