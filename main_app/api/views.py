@@ -443,22 +443,29 @@ class CameraCounterHistoryGraphViewDay(APIView):
 
         daily_data = CounterHistory.objects.filter(
             camera__tent=tent,
-            start_time__date__range=(start_date, end_date)
-        ).values(hour=ExtractHour('start_time')).annotate(
+            start_time__range=(start_date, end_date + timedelta(days=1))
+        ).values(day=ExtractDay('start_time__date')).annotate(
             total_in=Sum('total_in'),
             total_out=Sum('total_out'),
             total=Sum('total')
         )
         counter_history_list = list(daily_data)
-        for entry in counter_history_list:
-            counter_history_data.append({
-                'hour': entry['hour'],
-                'total_in': entry['total_in'],
-                'total_out': entry['total_out'],
-                'total': entry['total'],
-            })
+        total_days = (end_date - start_date).days + 1
+        result_in = [0] * total_days
+        result_out = [0] * total_days
+        result_stay = [0] * total_days
 
-        return counter_history_data
+        for entry in counter_history_list:
+            day = entry['day'] - start_date.day + 1
+            result_in[day - 1] = entry['total_in']
+            result_out[day - 1] = entry['total_out']
+            result_stay[day - 1] = entry['total']
+
+        labels = [f"Day {i}" for i in range(1, total_days + 1)]
+
+        data = {"labels": labels, "total_in": result_in, "total_out": result_out, "staying": result_stay }
+
+        return data
 
 
 
