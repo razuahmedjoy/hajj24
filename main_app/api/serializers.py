@@ -52,7 +52,19 @@ class CameraSerializer(serializers.ModelSerializer):
 class CounterHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = CounterHistory
-        fields = '__all__'
+        fields = ['sn', 'total_in', 'total_out', 'total', 'start_time', 'end_time']
+    def create(self, validated_data):
+        sn = validated_data.get("sn", None)
+        camera = None
+        if sn:
+            cameras = Camera.objects.filter(sn=sn)
+            if cameras.exists():
+                cameras = cameras[0]
+                camera.save()
+            else:
+                camera = Camera.objects.create(sn=str(sn))
+        else:
+            raise Exception("error")
 
 class CreateCounterHistorySerializer(serializers.ModelSerializer):
     class Meta:
