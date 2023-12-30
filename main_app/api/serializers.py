@@ -8,13 +8,35 @@ User = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=False)
+    is_admin = serializers.BooleanField(source='is_staff', read_only=True)
+    assignTents = serializers.PrimaryKeyRelatedField(queryset=Tent.objects.filter(is_available=True), many=True, required=False)
+    verification = serializers.BooleanField(default=False)
+    extra_kwargs = {'password': {'write_only': True}}
     class Meta:
         model = User
-        fields = ('id','email','username', 'password')
+        fields = ['email', 'username', 'password', 'verification', 'assignTents', 'is_admin']
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
-        user = User.objects.create_user(**validated_data)
+        user = User(
+            email=validated_data["email"], username=validated_data["username"]
+        )
+        password = validated_data["password"]
+        user.set_password(password)
+        user.save()
+
+        assign_tents = validated_data.get('assignTents', None)
+        if assign_tents:
+            for item in assign_tents:
+                print(f"Trying to add Tent with PK: {item}")
+                try:
+                    tent = Tent.objects.get(pk=int(item))
+                    user.assignTents.add(tent)
+                except Tent.DoesNotExist:
+                    print(f"Tent with PK {item} does not exist.")
+                    raise serializers.ValidationError({"assignTents": [f"Invalid pk \"{item}\" - object does not exist."]})
+
+        user.save()
         return user
 
 class CameraTentSerializer(serializers.ModelSerializer):
@@ -28,7 +50,7 @@ class CameraTentSerializer(serializers.ModelSerializer):
 
 class TentSerializer(serializers.ModelSerializer):
     cameras = serializers.SerializerMethodField('get_cameras')
-    created_by = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
+    # created_by = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
     class Meta:
         model = Tent
         fields = ('cameras','id', 'name', 'lat', 'long', 'location', 'created_by', 'created_at', 'updated_at')
@@ -129,14 +151,26 @@ class CreateHeartbeatSerializer(serializers.ModelSerializer):
 
 
 
-class CameraDetailSerializer(serializers.ModelSerializer):
-    tent_details = TentSerializer(read_only=True, source='tent')
-    counter_histories = CreateCounterHistorySerializer(many=True, read_only=True)
-    heartbeats = CreateHeartbeatSerializer(many=True, read_only=True)
-
+class CameraWithHeartbeatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Camera
-        fields = ['id', 'sn', 'tent', 'tent_details', 'heart_beat_time', 'created_at', 'updated_at', 'counter_histories', 'heartbeats', 'status']
+        fields = ['id', 'sn', 'tent', 'heart_beat_time', 'created_at', 'updated_at', 'status']
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+
+        # Include heartbeat fields directly within the Camera representation
+        latest_heartbeat = instance.heartbeats.latest('time')
+
+        data.update({
+            "version": latest_heartbeat.version,
+            "ip_address": latest_heartbeat.ip_address,
+            "time_zone": latest_heartbeat.time_zone,
+            "hw_platform": latest_heartbeat.hw_platform,
+            "time": latest_heartbeat.time,
+        })
+
+        return data
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image

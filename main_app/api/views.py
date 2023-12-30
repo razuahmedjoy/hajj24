@@ -9,7 +9,7 @@ from rest_framework.decorators import permission_classes
 from rest_framework.authtoken.models import Token
 from main_app.models import *
 from .serializers import *
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.utils.decorators import method_decorator
 from django.db.models import Q
 from django.utils import timezone
@@ -41,10 +41,11 @@ User = get_user_model()
 
 #  create a userList api view from where we can get all the users and create a new user
 @method_decorator(csrf_protect, name='dispatch')
-class UserListCreateAPIView(generics.ListCreateAPIView):
+class UserListAPIView(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     # permission_classes = [IsAuthenticated]
+
 class UserRegistrationAPIView(APIView):
     permission_classes = [AllowAny]
 
@@ -53,25 +54,28 @@ class UserRegistrationAPIView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             token, created = Token.objects.get_or_create(user=user)
-            return Response({'token': token.key, 'user_id': user.pk, 'email': user.email}, status=status.HTTP_201_CREATED)
+            return Response({
+                'token': token.key,
+                'user_id': user.pk,
+                'email': user.email,
+            }, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class UserLoginAPIView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
-        username = request.data.get('username')
+        email = request.data.get('email')
         password = request.data.get('password')
-        try:
-            user = User.objects.get(username=username)
-        except User.DoesNotExist:
-            user = None
-        if user and user.check_password(password):
+        user = authenticate(request, email=email, password=password)
+
+        if user is not None:
+            login(request, user)
             token, created = Token.objects.get_or_create(user=user)
             return Response({'token': token.key, 'user_id': user.pk, 'email': user.email}, status=status.HTTP_200_OK)
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-
 
 # @permission_classes([IsAuthenticated])
 class TentListCreateAPIView(generics.ListCreateAPIView):
@@ -126,7 +130,7 @@ class TentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class CameraListCreateAPIView(generics.ListCreateAPIView):
-    serializer_class = CameraDetailSerializer
+    serializer_class = CameraWithHeartbeatSerializer
 
     def get_queryset(self):
         camera_id = self.request.query_params.get('id')
@@ -144,7 +148,7 @@ class CameraListCreateAPIView(generics.ListCreateAPIView):
 
 class CameraRetrieveUpdateDestroyAPIView(generics.RetrieveAPIView):
     queryset = Camera.objects.all()
-    serializer_class = CameraDetailSerializer
+    serializer_class = CameraWithHeartbeatSerializer
     lookup_field = 'sn'
 
     def retrieve(self, request, *args, **kwargs):
