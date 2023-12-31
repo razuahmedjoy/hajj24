@@ -429,18 +429,6 @@ class CameraCounterHistoryGraphViewHour(APIView):
                 total_out=Sum('total_out'),
                 total=Sum('total')
             )
-
-        prev_data = CounterHistory.objects.filter(
-            camera__tent=tent,
-            end_time__date__lte=date
-        ).values(hour=ExtractHour("end_time")).annotate(
-            # total_in=Sum('total_in'),
-            # total_out=Sum('total_out'),
-            total=Sum('total')
-        )
-
-        print(prev_data)
-
         date_total_in = Counter({d["hour"]: d["total_in"] for d in hourly_data})
         date_total_out = Counter({d["hour"]: d["total_out"] for d in hourly_data})
         date_total_stay = Counter({d["hour"]: d["total"] for d in hourly_data})
