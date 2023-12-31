@@ -429,12 +429,27 @@ class CameraCounterHistoryGraphViewHour(APIView):
                 total_out=Sum('total_out'),
                 total=Sum('total')
             )
+
+        prev_data = CounterHistory.objects.filter(
+            camera__tent=tent,
+            end_time__date__gt=date
+        ).aggregate(
+            total = Sum('total')
+        )
+
         date_total_in = Counter({d["hour"]: d["total_in"] for d in hourly_data})
         date_total_out = Counter({d["hour"]: d["total_out"] for d in hourly_data})
         date_total_stay = Counter({d["hour"]: d["total"] for d in hourly_data})
         result_in = [date_total_in[i] for i in range(0, 23 + 1)]
         result_out = [date_total_out[i] for i in range(0, 23 + 1)]
-        result_stay = [date_total_stay[i] for i in range(0, 23 + 1)]
+        array1 = [date_total_stay[i] for i in range(0, 23 + 1)]
+        number = prev_data['total']
+        result_stay = []
+        array1[0] += number
+        result_stay.append(array1[0])
+        array1.pop(0)
+        for value in array1:
+            result_stay.append(value + result_stay[-1])
         labels = ["Hour " + str(i) for i in range(1, 24 + 1)]
         data = {"labels": labels, "total_in": result_in, "total_out": result_out, "staying": result_stay }
 
@@ -474,19 +489,35 @@ class CameraCounterHistoryGraphViewDay(APIView):
             total_out=Sum('total_out'),
             total=Sum('total')
         )
+
+        prev_data = CounterHistory.objects.filter(
+            camera__tent=tent,
+            end_time__date__gt=end_date
+        ).aggregate(
+            total = Sum('total')
+        )
+
         counter_history_list = list(daily_data)
         total_days = (end_date - start_date).days + 1
         result_in = [0] * total_days
         result_out = [0] * total_days
-        result_stay = [0] * total_days
+        array1 = [0] * total_days
 
         for entry in counter_history_list:
             day = entry['day'] - start_date.day + 1
             result_in[day - 1] = entry['total_in']
             result_out[day - 1] = entry['total_out']
-            result_stay[day - 1] = entry['total']
+            result_stay[day - 1] = entry['total'] + prev_data['total']
 
         labels = [f"Day {i}" for i in range(1, total_days + 1)]
+
+        number = prev_data['total']
+        result_stay = []
+        array1[0] += number
+        result_stay.append(array1[0])
+        array1.pop(0)
+        for value in array1:
+            result_stay.append(value + result_stay[-1])
 
         data = {"labels": labels, "total_in": result_in, "total_out": result_out, "staying": result_stay }
 
@@ -524,6 +555,16 @@ class CameraCounterHistoryGraphViewMonth(APIView):
             total_out=Sum('total_out'),
             total=Sum('total')
         )
+
+        prev_data = CounterHistory.objects.filter(
+            camera__tent=tent,
+            end_time__year__gt=date.year,
+            end_time__month__gt=date.month
+        ).aggregate(
+            total = Sum('total')
+        )
+
+
         counter_history_list = list(monthly_data)
         date_total_in = Counter({d["day"]: d["total_in"] for d in counter_history_list})
         date_total_out = Counter({d["day"]: d["total_out"] for d in counter_history_list})
@@ -532,9 +573,16 @@ class CameraCounterHistoryGraphViewMonth(APIView):
         __, ds = monthrange(datetime.today().year, datetime.today().month)
         result_in = [date_total_in[i] for i in range(1, ds + 1)]
         result_out = [date_total_out[i] for i in range(1, ds + 1)]
-        result_stay = [date_total_stay[i] for i in range(1, ds + 1)]
+        array1 = [date_total_stay[i] for i in range(1, ds + 1)]
 
         labels = ["Day " + str(i) for i in range(1, ds + 1)]
+        number = prev_data['total']
+        result_stay = []
+        array1[0] += number
+        result_stay.append(array1[0])
+        array1.pop(0)
+        for value in array1:
+            result_stay.append(value + result_stay[-1])
 
         data = {"labels": labels, "total_in": result_in, "total_out": result_out, "staying": result_stay }
 
