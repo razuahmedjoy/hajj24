@@ -363,6 +363,7 @@ class CounterHistoryByDateView(APIView):
             ).values("camera").annotate(
                 totals_in=Sum("total_in"),
                 totals_out=Sum("total_out"),
+                last_heartbeat_time=F('camera__heartbeats__time')
             )
 
             camera_data = []
@@ -383,6 +384,7 @@ class CounterHistoryByDateView(APIView):
                     'totals_in': entry['totals_in'],
                     'totals_out': entry['totals_out'],
                     'status': camera_status,
+                    'time': entry['last_heartbeat_time'],
                 }
                 camera_data.append(camera_entry)
 
