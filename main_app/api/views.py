@@ -18,6 +18,7 @@ from rest_framework.exceptions import ValidationError
 from django.db.models import Prefetch, Sum, Count
 from datetime import date, timedelta
 from django.db.models import Count, Sum, Avg, F, Case, Q, When, ExpressionWrapper
+from django.db import transaction
 from django.db.models.functions import (
     ExtractDay,
     ExtractMonth,
@@ -77,6 +78,28 @@ class UserLoginAPIView(APIView):
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
+class UserDeleteByEmailAPIView(generics.DestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    lookup_field = 'email'
+
+    def get_object(self):
+        lookup_value = self.kwargs.get(self.lookup_field)
+        queryset = self.filter_queryset(self.get_queryset())
+        filter_kwargs = {self.lookup_field: lookup_value}
+        obj = generics.get_object_or_404(queryset, **filter_kwargs)
+
+        return obj
+
+    def destroy(self, request, *args, **kwargs):
+        user = self.get_object()
+        print(user)
+        # if not request.user.is_staff:
+        #     raise PermissionDenied("You do not have permission to perform this action.")
+
+        user.delete()
+        return Response({"message": "User deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+
 # @permission_classes([IsAuthenticated])
 class TentListCreateAPIView(generics.ListCreateAPIView):
     queryset = Tent.objects.all()
@@ -128,6 +151,11 @@ class TentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
         context['request'] = self.request
         return context
 
+    def delete(self, request, *args, **kwargs):
+        instance = self.get_object()
+        instance.delete()
+        return Response({'message': 'Tent deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+
 
 class CameraListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = CameraWithHeartbeatSerializer
@@ -146,23 +174,20 @@ class CameraListCreateAPIView(generics.ListCreateAPIView):
         
         return queryset
 
-class CameraRetrieveUpdateDestroyAPIView(generics.RetrieveAPIView):
-    queryset = Camera.objects.all()
-    serializer_class = CameraWithHeartbeatSerializer
-    lookup_field = 'sn'
+class CameraRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = CameraSerializer
 
-    def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-        serializer = self.get_serializer(instance)
-        counter_histories = instance.counterhistory_set.all()
-        heartbeat_data = instance.cameraheartbeat_set.all()
-        counter_history_serializer = CreateCounterHistorySerializer(counter_histories, many=True)
-        heartbeat_serializer = CreateHeartbeatSerializer(heartbeat_data, many=True)
-        serializer_data = serializer.data
-        serializer_data['counter_histories'] = counter_history_serializer.data
-        serializer_data['heartbeats'] = heartbeat_serializer.data
+    def delete(self, request, *args, **kwargs):
+        sn = kwargs.get('sn')
 
-        return Response(serializer_data)
+        try:
+            with transaction.atomic():
+                camera = Camera.objects.get(sn=sn)
+                print(camera)
+                camera.delete()
+                return Response({'message': 'Camera deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+        except Camera.DoesNotExist:
+            return Response({'error': 'Camera not found'}, status=status.HTTP_404_NOT_FOUND)
 
 class CounterHistoryListView(APIView):
     def get(self, request):
@@ -396,7 +421,6 @@ class CameraCounterHistoryGraphViewHour(APIView):
     def get_counter_history_data(self, tent, date):
         counter_history_data = {'tent_id': tent.id, 'date': date.strftime('%d-%m-%Y'), 'counter_history': []}
 
-        # cameras = tent.camera_set.all()
         hourly_data = CounterHistory.objects.filter(
                 camera__tent=tent,
                 start_time__date=date,
@@ -406,7 +430,16 @@ class CameraCounterHistoryGraphViewHour(APIView):
                 total=Sum('total')
             )
 
-        print(type(hourly_data))
+        prev_data = CounterHistory.objects.filter(
+            camera__tent=tent,
+            end_time__date__lte=date
+        ).values(hour=ExtractHour("end_time")).annotate(
+            # total_in=Sum('total_in'),
+            # total_out=Sum('total_out'),
+            total=Sum('total')
+        )
+
+        print(prev_data)
 
         date_total_in = Counter({d["hour"]: d["total_in"] for d in hourly_data})
         date_total_out = Counter({d["hour"]: d["total_out"] for d in hourly_data})
