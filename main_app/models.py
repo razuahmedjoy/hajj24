@@ -101,10 +101,10 @@ class CounterHistory(models.Model):
 class CameraHeartbeat(models.Model):
     camera = models.ForeignKey(Camera, related_name='heartbeats', on_delete=models.CASCADE)
     sn = models.CharField(max_length=255)
-    version = models.IntegerField()
+    version = models.IntegerField(null=True, blank=True)
     ip_address = models.CharField(max_length=255)
-    time_zone = models.IntegerField()
-    hw_platform = models.CharField(max_length=255)
+    time_zone = models.IntegerField(null=True, blank=True)
+    hw_platform = models.CharField(max_length=255, null=True, blank=True)
     time = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now, blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)

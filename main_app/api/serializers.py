@@ -65,11 +65,15 @@ class CameraSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Camera
-        fields = ('id', 'sn', 'tent', 'tent_details', 'heart_beat_time', 'created_at', 'updated_at', 'status')  # Include 'status' field
+        fields = ['id', 'sn', 'version','time_zone', 'hw_platform', 'tent', 'tent_details', 'heart_beat_time', 'created_at', 'updated_at', 'status'] # Include 'status' field
 
     def create(self, validated_data):
         camera = Camera.objects.create(**validated_data)
         return camera
+
+    version = serializers.IntegerField(required=False)
+    time_zone = serializers.IntegerField(required=False)
+    hw_platform = serializers.CharField(max_length=255, required=False)
 
 class CounterHistorySerializer(serializers.ModelSerializer):
     class Meta:

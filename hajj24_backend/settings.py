@@ -5,7 +5,7 @@ BASE_DIR = Path('__file__').resolve().parent.parent
 from decouple import config
 
 SECRET_KEY = config("SECRET_KEY")
-DEBUG = config("DEBUG", default=True, cast=bool)
+# DEBUG = config("DEBUG", default=True, cast=bool)
 # 'django-insecure-&-^-llk#t9^v&a+1#c)i=lzjt5bh0-af*0uw1(*jr^nry!z*1i'
 TIME_ZONE = 'UTC'
 USE_TZ = True
@@ -50,7 +50,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.timezone.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = 'hajj24_backend.urls'
@@ -127,7 +126,7 @@ USE_I18N = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
