@@ -34,8 +34,6 @@ import calendar
 from rest_framework.authtoken.models import Token
 from django.db import models
 
-from django.utils import timezone
-
 import json
 
 User = get_user_model()
@@ -67,16 +65,15 @@ class UserLoginAPIView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
-        email = request.data.get('email')
+        username = request.data.get('username')
         password = request.data.get('password')
-        user = authenticate(request, email=email, password=password)
-
-        if user is not None:
-            login(request, user)
+        user = User.objects.filter(username=username).first()
+        if user and user.check_password(password):
             token, created = Token.objects.get_or_create(user=user)
             return Response({'token': token.key, 'user_id': user.pk, 'email': user.email}, status=status.HTTP_200_OK)
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+
 
 class UserDeleteByEmailAPIView(generics.DestroyAPIView):
     queryset = User.objects.all()
@@ -445,6 +442,7 @@ class CameraCounterHistoryGraphViewHour(APIView):
         result_in = [date_total_in[i] for i in range(0, 23 + 1)]
         result_out = [date_total_out[i] for i in range(0, 23 + 1)]
         array1 = [date_total_stay[i] for i in range(0, 23 + 1)]
+        
         number = prev_data['total']
         result_stay = []
         array1[0] += number
@@ -515,7 +513,8 @@ class CameraCounterHistoryGraphViewDay(APIView):
 
         number = prev_data['total']
         result_stay = []
-        array1[0] += number
+        if number is not None:
+            array1[0] += number
         result_stay.append(array1[0])
         array1.pop(0)
         for value in array1:
