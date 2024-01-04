@@ -7,7 +7,7 @@ from decouple import config
 SECRET_KEY = config("SECRET_KEY")
 # DEBUG = config("DEBUG", default=True, cast=bool)
 # 'django-insecure-&-^-llk#t9^v&a+1#c)i=lzjt5bh0-af*0uw1(*jr^nry!z*1i'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Riyadh'
 USE_TZ = True
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -17,6 +17,11 @@ ALLOWED_HOSTS = ["*"]
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5174",
+]
+CSRF_TRUSTED_ORIGINS = ['https://*.ngrok-free.app/', 'https://*.at.remote.it/','https://desktop-0lhsjl5-http.at.remote.it:33000', 'https://desktop-0lhsjl5-http.at.remote.it','https://desktop-0lhsjl5-http.at.remote.it:33006','https://*.127.0.0.1:8001']
 
 # Application definition
 
