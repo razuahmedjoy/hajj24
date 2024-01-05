@@ -42,6 +42,7 @@ class CounterHistoryAdmin(admin.ModelAdmin):
 
     camera_sn.short_description = 'Camera SN'
 
+
 admin.site.register(Tent, TentAdmin)
 admin.site.register(Camera, CameraAdmin)
 admin.site.register(CounterHistory, CounterHistoryAdmin)

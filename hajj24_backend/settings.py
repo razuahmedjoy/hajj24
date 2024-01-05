@@ -81,24 +81,27 @@ WSGI_APPLICATION = 'hajj24_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",
-    }
-}
-
 # DATABASES = {
-# 		'default': {
-# 			'ENGINE': 'django.db.backends.mysql',
-# 			'NAME': config("DATABASE_NAME"),
-# 			'USER': config("DATABASE_USER"),
-# 			'PASSWORD': config("PASSWORD"),
-# 			'HOST': config("HOST"),
-# 			'PORT': '3306'
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / "db.sqlite3",
+#     }
+# }
+
+DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.mysql',
+            'OPTIONS': {
+                'sql_mode': 'traditional',
+            },
+			'NAME': config("DATABASE_NAME"),
+			'USER': config("DATABASE_USER"),
+			'PASSWORD': config("PASSWORD"),
+			'HOST': config("HOST"),
+			'PORT': '3306'
 			
-# 		}
-# 	}
+		}
+	}
 
 # postgres://hajj24_user:SQiZj7QWHtENe85K1lW3nwUdOSrtUCih@dpg-clgc69njc5ks73ee87n0-a/hajj24
 
