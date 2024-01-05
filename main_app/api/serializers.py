@@ -8,13 +8,19 @@ User = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=False)
-    is_admin = serializers.BooleanField(source='is_staff', read_only=True)
     assignTents = serializers.PrimaryKeyRelatedField(queryset=Tent.objects.filter(is_available=True), many=True, required=False)
     verification = serializers.BooleanField(default=False)
-    extra_kwargs = {'password': {'write_only': True}}
+    extra_kwargs = {
+        'password': {'write_only': True},
+        'is_admin': {'required': False},
+        'is_active': {'required': False},
+        'is_staff': {'required': False},
+        'is_superuser': {'required': False},
+    }
+
     class Meta:
         model = User
-        fields = ['email', 'username', 'password', 'verification', 'assignTents', 'is_admin']
+        fields = ['email', 'username', 'password', 'verification', 'assignTents']
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
