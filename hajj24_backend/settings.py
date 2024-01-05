@@ -21,9 +21,11 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5174",
     'http://192.168.56.1:8000',
-    'http://192.168.56.1:8001'
+    'http://192.168.56.1:8001',
+    'http://10.24.197.111:8000/',
+    'http://10.24.197.111:8001/'
 ]
-CSRF_TRUSTED_ORIGINS = ['https://*.ngrok-free.app/', 'https://*.at.remote.it/','https://desktop-0lhsjl5-http.at.remote.it:33000', 'https://desktop-0lhsjl5-http.at.remote.it','https://desktop-0lhsjl5-http.at.remote.it:33006','http://192.168.56.1:8000','http://192.168.56.1:8001','https://*.127.0.0.1:8001']
+CSRF_TRUSTED_ORIGINS = ['https://*.ngrok-free.app/', 'https://*.at.remote.it/','https://desktop-0lhsjl5-http.at.remote.it:33000', 'https://desktop-0lhsjl5-http.at.remote.it','https://desktop-0lhsjl5-http.at.remote.it:33006','http://192.168.56.1:8000','http://192.168.56.1:8001','https://*.127.0.0.1:8001', 'http://10.24.197.111:8001/', 'http://10.24.197.111:8000/']
 
 # Application definition
 
