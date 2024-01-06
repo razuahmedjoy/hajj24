@@ -4,4 +4,4 @@ hajj24_backend/__pycache__/
 main_app/__pycache__/
 main_app/migrations/__pycache__/
 .env
-
+**/_pycache_/
