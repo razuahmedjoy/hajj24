@@ -445,7 +445,7 @@ class CameraCounterHistoryGraphViewHour(APIView):
         print("hourly_data", CounterHistory.objects.filter(
                 camera__tent=tent,
                 # start_time__date=date,
-            ))
+            ).query)
 
         prev_data = CounterHistory.objects.filter(
             camera__tent=tent,

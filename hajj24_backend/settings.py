@@ -92,7 +92,9 @@ DATABASES = {
 		'default': {
 			'ENGINE': 'django.db.backends.mysql',
             'OPTIONS': {
+                
                 'sql_mode': 'traditional',
+                'init_command': "SET time_zone='+03:00';",
             },
 			'NAME': config("DATABASE_NAME"),
 			'USER': config("DATABASE_USER"),
