@@ -26,6 +26,7 @@ from django.db.models.functions import (
     ExtractYear,
     ExtractHour,
     Cast,
+    TruncDate
 )
 from datetime import datetime, timedelta
 from collections import Counter
@@ -360,8 +361,13 @@ class CounterHistoryByDateView(APIView):
             ).values("camera").annotate(
                 totals_in=Sum("total_in"),
                 totals_out=Sum("total_out"),
-                last_heartbeat_time=F('camera__heartbeats__time')
+                #last_heartbeat_time=F('camera__heartbeats__time')
             )
+
+
+
+            # print(tent_history)
+            #return Response(tent_history)
 
             camera_data = []
             total_in_sum = 0
@@ -371,7 +377,7 @@ class CounterHistoryByDateView(APIView):
                 camera_id = entry['camera']
                 camera = Camera.objects.get(id=camera_id)
                 serializer = CameraSerializer(camera)
-                camera_status = serializer.data['status']
+                heart_beat_time = serializer.data['heart_beat_time']
 
                 total_in_sum += entry['totals_in']
                 total_out_sum += entry['totals_out']
@@ -380,8 +386,8 @@ class CounterHistoryByDateView(APIView):
                     'camera': camera_id,
                     'totals_in': entry['totals_in'],
                     'totals_out': entry['totals_out'],
-                    'status': camera_status,
-                    'time': entry['last_heartbeat_time'],
+                    'status': heart_beat_time,
+                    'time': heart_beat_time,
                 }
                 camera_data.append(camera_entry)
 
@@ -419,6 +425,7 @@ class CameraCounterHistoryGraphViewHour(APIView):
 
     def get_counter_history_data(self, tent, date):
         counter_history_data = {'tent_id': tent.id, 'date': date.strftime('%d-%m-%Y'), 'counter_history': []}
+        # print("value",timezone.now())
 
         hourly_data = CounterHistory.objects.filter(
                 camera__tent=tent,
@@ -428,13 +435,19 @@ class CameraCounterHistoryGraphViewHour(APIView):
                 total_out=Sum('total_out'),
                 total=Sum('total')
             )
+        
+        print("hourly_data", CounterHistory.objects.filter(
+                camera__tent=tent,
+                # start_time__date=date,
+            ))
 
         prev_data = CounterHistory.objects.filter(
             camera__tent=tent,
-            end_time__date__gt=date
+            start_time__date__lt=date
         ).aggregate(
             total = Sum('total')
         )
+        number = prev_data['total'] if prev_data['total'] is not None else 0
 
         date_total_in = Counter({d["hour"]: d["total_in"] for d in hourly_data})
         date_total_out = Counter({d["hour"]: d["total_out"] for d in hourly_data})
@@ -443,7 +456,7 @@ class CameraCounterHistoryGraphViewHour(APIView):
         result_out = [date_total_out[i] for i in range(0, 23 + 1)]
         array1 = [date_total_stay[i] for i in range(0, 23 + 1)]
         
-        number = prev_data['total']
+
         result_stay = []
         array1[0] += number
         result_stay.append(array1[0])
@@ -483,8 +496,8 @@ class CameraCounterHistoryGraphViewDay(APIView):
 
         daily_data = CounterHistory.objects.filter(
             camera__tent=tent,
-            start_time__range=(start_date, end_date + timedelta(days=1))
-        ).values(day=ExtractDay('start_time__date')).annotate(
+            start_time__range=(start_date, end_date),
+        ).values(day=TruncDate('start_time')).annotate(
             total_in=Sum('total_in'),
             total_out=Sum('total_out'),
             total=Sum('total')
@@ -492,26 +505,42 @@ class CameraCounterHistoryGraphViewDay(APIView):
 
         prev_data = CounterHistory.objects.filter(
             camera__tent=tent,
-            end_time__date__gt=end_date
+            start_time__date__lt=start_date
         ).aggregate(
             total = Sum('total')
         )
+        # print("first_print",tent, start_date, end_date)
+        # print("daily_data filter:", CounterHistory.objects.filter(
+        #     camera__tent=tent,
+        #     start_time__range=(start_date, end_date)
+        # ))
+        # print("prev_data filter:", CounterHistory.objects.filter(
+        #     camera__tent=tent,
+        #     end_time__date__gt=end_date
+        # ))
+
+        number = prev_data['total'] if prev_data['total'] is not None else 0
+
 
         counter_history_list = list(daily_data)
         total_days = (end_date - start_date).days + 1
         result_in = [0] * total_days
         result_out = [0] * total_days
+        result_stay = [0] * total_days
         array1 = [0] * total_days
+        print(counter_history_list, "value", daily_data)
 
         for entry in counter_history_list:
-            day = entry['day'] - start_date.day + 1
+            if entry['day'] is None:
+                continue
+            day = (entry['day'] - start_date).days + 1
             result_in[day - 1] = entry['total_in']
             result_out[day - 1] = entry['total_out']
             result_stay[day - 1] = entry['total'] + prev_data['total']
+            prev_data['total'] = result_stay[day - 1]
 
         labels = [f"Day {i}" for i in range(1, total_days + 1)]
 
-        number = prev_data['total']
         result_stay = []
         if number is not None:
             array1[0] += number
@@ -559,11 +588,12 @@ class CameraCounterHistoryGraphViewMonth(APIView):
 
         prev_data = CounterHistory.objects.filter(
             camera__tent=tent,
-            end_time__year__gt=date.year,
-            end_time__month__gt=date.month
+            start_time__year__lte=date.year,
+            start_time__month__lt=date.month
         ).aggregate(
             total = Sum('total')
         )
+        
 
 
         counter_history_list = list(monthly_data)
@@ -577,7 +607,7 @@ class CameraCounterHistoryGraphViewMonth(APIView):
         array1 = [date_total_stay[i] for i in range(1, ds + 1)]
 
         labels = ["Day " + str(i) for i in range(1, ds + 1)]
-        number = prev_data['total']
+        number = prev_data['total'] if prev_data['total'] is not None else 0
         result_stay = []
         array1[0] += number
         result_stay.append(array1[0])

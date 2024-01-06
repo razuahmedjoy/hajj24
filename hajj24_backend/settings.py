@@ -1,21 +1,19 @@
 from pathlib import Path
 import os
-BASE_DIR = Path('__file__').resolve().parent.parent
-
 from decouple import config
 
+
+BASE_DIR = Path('__file__').resolve().parent.parent
 SECRET_KEY = config("SECRET_KEY")
+DEBUG = config("DEBUG", default=True, cast=bool) 
 # DEBUG = config("DEBUG", default=True, cast=bool)
 # 'django-insecure-&-^-llk#t9^v&a+1#c)i=lzjt5bh0-af*0uw1(*jr^nry!z*1i'
-TIME_ZONE = 'Asia/Riyadh'
-USE_TZ = True
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-CORS_ORIGIN_ALLOW_ALL = True
 
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
@@ -130,7 +128,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+TIME_ZONE = "Asia/Riyadh"
 USE_I18N = True
+USE_L10N = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
