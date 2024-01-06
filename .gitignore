@@ -1,7 +1,5 @@
 venv
-main_app/management/commands/__pycache__/
-hajj24_backend/__pycache__/
-main_app/__pycache__/
-main_app/migrations/__pycache__/
 .env
-**/_pycache_/
+**/__pycache__/
+**/**/__pycache__/
+**/**/**/__pycache__/
