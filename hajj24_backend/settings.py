@@ -1,27 +1,27 @@
 from pathlib import Path
 import os
-BASE_DIR = Path('__file__').resolve().parent.parent
-
 from decouple import config
 
+
+BASE_DIR = Path('__file__').resolve().parent.parent
 SECRET_KEY = config("SECRET_KEY")
+DEBUG = config("DEBUG", default=True, cast=bool) 
 # DEBUG = config("DEBUG", default=True, cast=bool)
 # 'django-insecure-&-^-llk#t9^v&a+1#c)i=lzjt5bh0-af*0uw1(*jr^nry!z*1i'
-TIME_ZONE = 'Asia/Riyadh'
-USE_TZ = True
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-CORS_ORIGIN_ALLOW_ALL = True
 
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5174",
+    'http://192.168.56.1:8000',
+    'http://192.168.56.1:8001',
 ]
-CSRF_TRUSTED_ORIGINS = ['https://*.ngrok-free.app/', 'https://*.at.remote.it/','https://desktop-0lhsjl5-http.at.remote.it:33000', 'https://desktop-0lhsjl5-http.at.remote.it','https://desktop-0lhsjl5-http.at.remote.it:33006','https://*.127.0.0.1:8001']
+CSRF_TRUSTED_ORIGINS = ['https://*.ngrok-free.app/', 'https://*.at.remote.it/','https://desktop-0lhsjl5-http.at.remote.it:33000', 'https://desktop-0lhsjl5-http.at.remote.it','https://desktop-0lhsjl5-http.at.remote.it:33006','http://192.168.56.1:8000','http://192.168.56.1:8001','https://*.127.0.0.1:8001', 'http://10.24.197.111:8001/', 'http://10.24.197.111:8000/']
 
 # Application definition
 
@@ -81,24 +81,27 @@ WSGI_APPLICATION = 'hajj24_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",
-    }
-}
-
 # DATABASES = {
-# 		'default': {
-# 			'ENGINE': 'django.db.backends.mysql',
-# 			'NAME': config("DATABASE_NAME"),
-# 			'USER': config("DATABASE_USER"),
-# 			'PASSWORD': config("PASSWORD"),
-# 			'HOST': config("HOST"),
-# 			'PORT': '3306'
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / "db.sqlite3",
+#     }
+# }
+
+DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.mysql',
+            'OPTIONS': {
+                'sql_mode': 'traditional',
+            },
+			'NAME': config("DATABASE_NAME"),
+			'USER': config("DATABASE_USER"),
+			'PASSWORD': config("PASSWORD"),
+			'HOST': config("HOST"),
+			'PORT': '3306'
 			
-# 		}
-# 	}
+		}
+	}
 
 # postgres://hajj24_user:SQiZj7QWHtENe85K1lW3nwUdOSrtUCih@dpg-clgc69njc5ks73ee87n0-a/hajj24
 
@@ -125,7 +128,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+TIME_ZONE = "Asia/Riyadh"
 USE_I18N = True
+USE_L10N = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

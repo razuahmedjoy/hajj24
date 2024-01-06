@@ -8,13 +8,14 @@ User = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=False)
-    is_admin = serializers.BooleanField(source='is_staff', read_only=True)
-    assignTents = serializers.PrimaryKeyRelatedField(queryset=Tent.objects.filter(is_available=True), many=True, required=False)
     verification = serializers.BooleanField(default=False)
-    extra_kwargs = {'password': {'write_only': True}}
+    extra_kwargs = {
+        'password': {'write_only': True},
+    }
+
     class Meta:
         model = User
-        fields = ['email', 'username', 'password', 'verification', 'assignTents', 'is_admin']
+        fields = ['email', 'username', 'password', 'verification', 'assigned_tent']
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -24,19 +25,8 @@ class UserSerializer(serializers.ModelSerializer):
         password = validated_data["password"]
         user.set_password(password)
         user.save()
-
-        assign_tents = validated_data.get('assignTents', None)
-        if assign_tents:
-            for item in assign_tents:
-                print(f"Trying to add Tent with PK: {item}")
-                try:
-                    tent = Tent.objects.get(pk=int(item))
-                    user.assignTents.add(tent)
-                except Tent.DoesNotExist:
-                    print(f"Tent with PK {item} does not exist.")
-                    raise serializers.ValidationError({"assignTents": [f"Invalid pk \"{item}\" - object does not exist."]})
-
-        user.save()
+        for item in validated_data['assigned_tent']:
+            user.assigned_tent.add(item)
         return user
 
 class CameraTentSerializer(serializers.ModelSerializer):
