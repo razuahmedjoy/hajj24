@@ -316,7 +316,7 @@ class CameraHeartbeatListCreateView(generics.ListCreateAPIView):
     def post(self, request, *args, **kwargs):
         sn = request.data.get('sn')
         camera = get_object_or_404(Camera, sn=sn)
-        
+
         heartbeat_data = {
             'sn': sn,
             'version': request.data.get('version'),
@@ -326,7 +326,14 @@ class CameraHeartbeatListCreateView(generics.ListCreateAPIView):
             'time': request.data.get('time', None),
         }
 
-        heartbeat_serializer = CreateHeartbeatSerializer(data=heartbeat_data)
+        existing_heartbeat = CameraHeartbeat.objects.filter(sn=sn).first()
+
+        if existing_heartbeat:
+            # Update existing instance if it already exists
+            heartbeat_serializer = CreateHeartbeatSerializer(existing_heartbeat, data=heartbeat_data)
+        else:
+            # Create a new instance if it doesn't exist
+            heartbeat_serializer = CreateHeartbeatSerializer(data=heartbeat_data)
 
         if heartbeat_serializer.is_valid():
             camera.heart_beat_time = timezone.now()
@@ -334,12 +341,11 @@ class CameraHeartbeatListCreateView(generics.ListCreateAPIView):
             validated_data = heartbeat_serializer.validated_data
             validated_data['camera'] = camera
 
-            heartbeat = CameraHeartbeat.objects.create(**validated_data)
+            heartbeat = heartbeat_serializer.save()
 
             return Response(heartbeat_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(heartbeat_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 class PictureCreateView(generics.CreateAPIView):
     queryset = Picture.objects.all()
@@ -496,14 +502,15 @@ class CameraCounterHistoryGraphViewDay(APIView):
 
         daily_data = CounterHistory.objects.filter(
             camera__tent=tent,
-            start_time__range=(start_date, end_date),
+            start_time__date__gte=start_date,
+            start_time__date__lte=end_date,
         ).values(day=TruncDate('start_time')).annotate(
             total_in=Sum('total_in'),
             total_out=Sum('total_out'),
             total=Sum('total')
         )
 
-        print("daily data: ",daily_data)
+        #print("daily data: ",daily_data)
 
         prev_data = CounterHistory.objects.filter(
             camera__tent=tent,
@@ -524,7 +531,7 @@ class CameraCounterHistoryGraphViewDay(APIView):
         print("daily prev data : ",prev_data)
 
         number = prev_data['total'] if prev_data['total'] is not None else 0
-
+        prev_data['total'] = number
 
         counter_history_list = list(daily_data)
 
