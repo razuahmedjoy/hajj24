@@ -551,6 +551,18 @@ class CameraCounterHistoryGraphViewDay(APIView):
             result_out[day - 1] = entry['total_out']
             result_stay[day - 1] = entry['total'] + prev_data['total']
             prev_data['total'] = result_stay[day - 1]
+ 
+        # TO-DO: Print day range of month
+        # delta = timedelta(days=1)
+
+        # # Iterate over the range of dates
+        # current_date = start_date
+        # while current_date <= end_date:
+        #     # Do something with the current date
+        #     print("current Date: ",current_date)
+
+        #     # Move to the next date
+        #     current_date += delta
 
         labels = [f"Day {i}" for i in range(1, total_days + 1)]
 
@@ -606,20 +618,22 @@ class CameraCounterHistoryGraphViewMonth(APIView):
         ).aggregate(
             total = Sum('total')
         )
-        
-
-
+    
         counter_history_list = list(monthly_data)
         date_total_in = Counter({d["day"]: d["total_in"] for d in counter_history_list})
         date_total_out = Counter({d["day"]: d["total_out"] for d in counter_history_list})
         date_total_stay = Counter({d["day"]: d["total"] for d in counter_history_list})
 
-        __, ds = monthrange(datetime.today().year, datetime.today().month)
+        print("date: ",date.month)
+        print("len :",monthrange(date.year, date.month))
+        selected_month=date.strftime('%b')
+        # __, ds = monthrange(datetime.today().year, datetime.today().month)
+        __, ds = monthrange(date.year, date.month)
         result_in = [date_total_in[i] for i in range(1, ds + 1)]
         result_out = [date_total_out[i] for i in range(1, ds + 1)]
         array1 = [date_total_stay[i] for i in range(1, ds + 1)]
 
-        labels = ["Day " + str(i) for i in range(1, ds + 1)]
+        labels = [selected_month+" " + str(i) for i in range(1, ds + 1)]
         number = prev_data['total'] if prev_data['total'] is not None else 0
         result_stay = []
         array1[0] += number
