@@ -553,19 +553,16 @@ class CameraCounterHistoryGraphViewDay(APIView):
             prev_data['total'] = result_stay[day - 1]
  
         # TO-DO: Print day range of month
-        # delta = timedelta(days=1)
+        delta = timedelta(days=1)
+        labels=[]
+        # Iterate over the range of dates
+        current_date = start_date
+        while current_date <= end_date:
+            # Do something with the current date
 
-        # # Iterate over the range of dates
-        # current_date = start_date
-        # while current_date <= end_date:
-        #     # Do something with the current date
-        #     print("current Date: ",current_date)
-
-        #     # Move to the next date
-        #     current_date += delta
-
-        labels = [f"Day {i}" for i in range(1, total_days + 1)]
-
+            labels.append(current_date.strftime("%d %b"))
+            # Move to the next date
+            current_date += delta
         result_stay = []
         if number is not None:
             array1[0] += number
