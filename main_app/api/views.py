@@ -160,7 +160,7 @@ class TentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 class CameraListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = CameraWithHeartbeatSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         camera_id = self.request.query_params.get('id')
@@ -178,15 +178,14 @@ class CameraListCreateAPIView(generics.ListCreateAPIView):
 
 class CameraRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = CameraSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def delete(self, request, *args, **kwargs):
         sn = kwargs.get('sn')
 
         try:
             with transaction.atomic():
-                camera = Camera.objects.get(sn=sn)
-                print(camera)
+                camera = Camera.objects.get(id=sn)
                 camera.delete()
                 return Response({'message': 'Camera deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
         except Camera.DoesNotExist:
