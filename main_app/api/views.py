@@ -418,7 +418,6 @@ class CounterHistoryByDateView(APIView):
 
 
 class CameraCounterHistoryGraphViewHour(APIView):
-    permission_classes = [IsAuthenticated]
     def get(self, request, tent_id, *args, **kwargs):
         try:
             tent = Tent.objects.get(id=tent_id)
