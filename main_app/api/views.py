@@ -44,7 +44,7 @@ User = get_user_model()
 class UserListAPIView(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
 class UserRegistrationAPIView(APIView):
     permission_classes = [AllowAny]
@@ -102,6 +102,7 @@ class UserDeleteByEmailAPIView(generics.DestroyAPIView):
 class TentListCreateAPIView(generics.ListCreateAPIView):
     queryset = Tent.objects.all()
     serializer_class = TentSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -116,6 +117,7 @@ class TentListCreateAPIView(generics.ListCreateAPIView):
 class TentWithDayMonthYear(generics.ListCreateAPIView):
     queryset = Tent.objects.all()
     serializer_class = TentSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -142,6 +144,7 @@ class TentWithDayMonthYear(generics.ListCreateAPIView):
 class TentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Tent.objects.all()
     serializer_class = TentSerializer
+    permission_classes = [IsAuthenticated]
     lookup_field = 'id'
 
     def get_serializer_context(self):
@@ -157,6 +160,7 @@ class TentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 class CameraListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = CameraWithHeartbeatSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         camera_id = self.request.query_params.get('id')
@@ -174,6 +178,7 @@ class CameraListCreateAPIView(generics.ListCreateAPIView):
 
 class CameraRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = CameraSerializer
+    permission_classes = [IsAuthenticated]
 
     def delete(self, request, *args, **kwargs):
         sn = kwargs.get('sn')
@@ -188,6 +193,7 @@ class CameraRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
             return Response({'error': 'Camera not found'}, status=status.HTTP_404_NOT_FOUND)
 
 class CounterHistoryListView(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         try:
             counter_histories = CounterHistory.objects.all()
@@ -197,7 +203,7 @@ class CounterHistoryListView(APIView):
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class CounterHistoryListCreateView(generics.ListCreateAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     serializer_class = CreateCounterHistorySerializer
 
     def get_queryset(self):
@@ -221,12 +227,12 @@ class CounterHistoryListCreateView(generics.ListCreateAPIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class CounterHistoryDetailView(generics.RetrieveUpdateDestroyAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = CounterHistory.objects.all()
     serializer_class = CreateCounterHistorySerializer
 
 class CameraHeartbeatDetailView(generics.RetrieveUpdateDestroyAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = CameraHeartbeat.objects.all()
     serializer_class = CreateHeartbeatSerializer
 
@@ -236,6 +242,7 @@ class CameraHeartbeatDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class CameraRegistrationWithHistoryView(APIView):
+    permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
         sn = request.data.get('sn')
@@ -285,6 +292,7 @@ class CameraRegistrationWithHistoryView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class CounterHistoryCreateAPIView(APIView):
+    permission_classes = [IsAuthenticated]
     def post(self, request, *args, **kwargs):
         sn = request.data.get('sn')
         camera = get_object_or_404(Camera, sn=sn)
@@ -309,7 +317,7 @@ class CounterHistoryCreateAPIView(APIView):
 
 
 class CameraHeartbeatListCreateView(generics.ListCreateAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = CameraHeartbeat.objects.all()
     serializer_class = CreateHeartbeatSerializer
 
@@ -350,12 +358,13 @@ class CameraHeartbeatListCreateView(generics.ListCreateAPIView):
 class PictureCreateView(generics.CreateAPIView):
     queryset = Picture.objects.all()
     serializer_class = PictureSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
 class CounterHistoryByDateView(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         try:
             tent_id = request.query_params.get('tent', None)
@@ -410,6 +419,7 @@ class CounterHistoryByDateView(APIView):
 
 
 class CameraCounterHistoryGraphViewHour(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self, request, tent_id, *args, **kwargs):
         try:
             tent = Tent.objects.get(id=tent_id)
@@ -475,6 +485,7 @@ class CameraCounterHistoryGraphViewHour(APIView):
         return data
 
 class CameraCounterHistoryGraphViewDay(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self, request, tent_id, *args, **kwargs):
         try:
             tent = Tent.objects.get(id=tent_id)
@@ -578,6 +589,7 @@ class CameraCounterHistoryGraphViewDay(APIView):
 
 
 class CameraCounterHistoryGraphViewMonth(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self, request, tent_id, *args, **kwargs):
         try:
             tent = Tent.objects.get(id=tent_id)

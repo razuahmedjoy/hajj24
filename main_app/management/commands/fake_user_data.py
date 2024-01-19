@@ -6,11 +6,7 @@ class Command(BaseCommand):
     help = 'Inserts fake user data into the database'
 
     def handle(self, *args, **options):
-        fake_data = [{
-    "email": "tblucher0@stumbleupon.com",
-    "username": "bash",
-    "password": "hello1world"
-  },
+        fake_data = [
   {
     "email": "rpentony1@sciencedaily.com",
     "username": "shell",
